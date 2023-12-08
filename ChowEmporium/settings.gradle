@@ -1,0 +1,3 @@
+rootProject.name = 'ChowEmporium'
+
+includeFlat 'JPAChowEmporium'
