@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Chow Emporium</title>
 </head>
 <body>
+
+<h2>Chow Emporium</h2>
+
+${SMOKETEST}
 
 </body>
 </html>
