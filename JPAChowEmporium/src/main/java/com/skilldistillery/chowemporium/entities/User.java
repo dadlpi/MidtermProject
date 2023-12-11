@@ -39,7 +39,7 @@ public class User {
 	@Column(name = "date_created")
 	private LocalDateTime dateCreated;
 
-	@Column(name = "last_updated")
+	@Column(name = "last_update")
 	private LocalDateTime lastUpdated;
 
 	@Column(name = "profile_image_url")
