@@ -1,6 +1,7 @@
 package com.skilldistillery.jpachowemporium.entities;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.skilldistillery.chowemporium.entities.UserDiet;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -48,7 +50,8 @@ class UserDietTest {
 
 	@Test
 	void test() {
-		assertNull(userDiet);
+		assertNotNull(userDiet);
+		assertEquals("Body Building", userDiet.getName());
 		
 	}
 

@@ -19,6 +19,12 @@ public class MealType {
 	private String name;
 	
 	private String description;
+	
+	
+
+	public MealType() {
+		super();
+	}
 
 	public int getId() {
 		return id;

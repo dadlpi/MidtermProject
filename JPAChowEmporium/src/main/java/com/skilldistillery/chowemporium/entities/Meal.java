@@ -21,6 +21,12 @@ public class Meal {
 	
 	@Column(name = "image_url")
 	private String imageUrl;
+	
+	
+
+	public Meal() {
+		super();
+	}
 
 	public int getId() {
 		return id;

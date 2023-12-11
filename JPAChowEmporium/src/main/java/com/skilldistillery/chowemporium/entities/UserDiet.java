@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,9 +22,6 @@ public class UserDiet {
 	
 	private String name;
 	
-	@Column(name = "image_url")
-	private String imageUrl;
-	
 	@Column(name = "date_created")
 	private LocalDateTime dateCreated;
 	
@@ -30,6 +29,14 @@ public class UserDiet {
 	private LocalDateTime lastUpdate;
 	
 	private boolean enabled;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	public UserDiet() {
+		super();
+	}
 
 	public int getId() {
 		return id;
@@ -47,13 +54,6 @@ public class UserDiet {
 		this.name = name;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
 
 	public LocalDateTime getDateCreated() {
 		return dateCreated;
@@ -98,7 +98,7 @@ public class UserDiet {
 
 	@Override
 	public String toString() {
-		return "UserDiet [id=" + id + ", name=" + name + ", imageUrl=" + imageUrl + ", dateCreated=" + dateCreated
+		return "UserDiet [id=" + id + ", name=" + name + ", dateCreated=" + dateCreated
 				+ ", lastUpdate=" + lastUpdate + ", enabled=" + enabled + "]";
 	}
 	

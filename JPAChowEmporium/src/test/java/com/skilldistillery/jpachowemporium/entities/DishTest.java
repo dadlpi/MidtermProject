@@ -1,5 +1,7 @@
 package com.skilldistillery.jpachowemporium.entities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.AfterAll;
@@ -49,8 +51,8 @@ class DishTest {
 
 	@Test
 	void test() {
-		assertNull(dish);
-		
+		assertNotNull(dish);
+		assertEquals("Easy Butter Chicken", dish.getName());
 	}
 
 }

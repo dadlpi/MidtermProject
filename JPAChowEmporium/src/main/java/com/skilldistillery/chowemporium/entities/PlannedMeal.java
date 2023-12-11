@@ -21,6 +21,12 @@ public class PlannedMeal {
 	private String dayOfWeek;
 	
 	private String description;
+	
+	
+
+	public PlannedMeal() {
+		super();
+	}
 
 	public int getId() {
 		return id;

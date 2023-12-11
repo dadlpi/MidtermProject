@@ -2,6 +2,7 @@ package com.skilldistillery.chowemporium.entities;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -9,6 +10,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -48,16 +54,34 @@ public class User {
 	@Column(name = "about_me")
 	private String aboutMe;
 
+	@OneToOne
+	@JoinColumn(name = "id")
+	private User user;
+
+	@OneToMany(mappedBy = "user")
+	private List<UserDiet> userDiets;
+
+	@OneToMany(mappedBy = "user")
+	private List<MealPlan> mealPlans;
+
+	@ManyToMany
+	@JoinTable(name = "favorite_dish", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "dish_id"))
+	private List<Dish> favoriteDishList;
+
+	@ManyToMany
+	@JoinTable(name = "dish_rating", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "dish_id"))
+	private List<Dish> ratedDishes;
+
+	public User() {
+		super();
+	}
+
 	public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public User() {
-		super();
 	}
 
 	public int getId() {
@@ -154,6 +178,46 @@ public class User {
 
 	public void setAboutMe(String aboutMe) {
 		this.aboutMe = aboutMe;
+	}
+
+	public List<UserDiet> getUserDiets() {
+		return userDiets;
+	}
+
+	public void setUserDiets(List<UserDiet> userDiets) {
+		this.userDiets = userDiets;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<MealPlan> getMealPlans() {
+		return mealPlans;
+	}
+
+	public void setMealPlans(List<MealPlan> mealPlans) {
+		this.mealPlans = mealPlans;
+	}
+
+	public List<Dish> getFavoriteDishList() {
+		return favoriteDishList;
+	}
+
+	public void setFavoriteDishList(List<Dish> favoriteDishList) {
+		this.favoriteDishList = favoriteDishList;
+	}
+
+	public List<Dish> getRatedDishes() {
+		return ratedDishes;
+	}
+
+	public void setRatedDishes(List<Dish> ratedDishes) {
+		this.ratedDishes = ratedDishes;
 	}
 
 	@Override

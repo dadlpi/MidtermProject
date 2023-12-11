@@ -10,15 +10,21 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Strictness {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "strictness_level")
 	private String strictnessLevel;
-	
+
 	private String description;
+	
+	
+
+	public Strictness() {
+		super();
+	}
 
 	public int getId() {
 		return id;
@@ -65,8 +71,5 @@ public class Strictness {
 	public String toString() {
 		return "Strictness [id=" + id + ", strictnessLevel=" + strictnessLevel + ", description=" + description + "]";
 	}
-	
-	
-	
 
 }

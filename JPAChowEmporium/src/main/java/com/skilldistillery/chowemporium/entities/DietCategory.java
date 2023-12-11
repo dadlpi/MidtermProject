@@ -16,6 +16,12 @@ public class DietCategory {
 	private int id;
 	
 	private String name;
+	
+	
+
+	public DietCategory() {
+		super();
+	}
 
 	public int getId() {
 		return id;

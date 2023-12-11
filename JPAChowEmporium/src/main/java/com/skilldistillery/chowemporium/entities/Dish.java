@@ -11,40 +11,43 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Dish {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	
+
 	private String name;
-	
+
 	private String description;
-	
+
 	private Integer calories;
-	
+
 	@Column(name = "image_url")
 	private String imageUrl;
-	
+
 	@Column(name = "protein_grams")
 	private Integer proteinGrams;
-	
+
 	@Column(name = "fat_grams")
 	private Integer fatGrams;
-	
+
 	@Column(name = "carbs_grams")
 	private Integer carbsGrams;
-	
+
 	@Column(name = "recipe_url")
 	private String recipeUrl;
-	
+
 	@Column(name = "date_created")
 	private LocalDateTime dateCreated;
-	
+
 	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
-	
+
 	private boolean enabled;
+
+	public Dish() {
+		super();
+	}
 
 	public int getId() {
 		return id;
@@ -166,12 +169,5 @@ public class Dish {
 				+ ", carbsGrams=" + carbsGrams + ", recipeUrl=" + recipeUrl + ", dateCreated=" + dateCreated
 				+ ", lastUpdate=" + lastUpdate + ", enabled=" + enabled + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }

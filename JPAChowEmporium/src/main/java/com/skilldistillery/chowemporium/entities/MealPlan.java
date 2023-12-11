@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Table(name = "meal_plan")
@@ -31,6 +33,15 @@ public class MealPlan {
 	private boolean shared;
 	
 	private String description;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+
+	public MealPlan() {
+		super();
+	}
 
 	public int getId() {
 		return id;
@@ -86,6 +97,14 @@ public class MealPlan {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

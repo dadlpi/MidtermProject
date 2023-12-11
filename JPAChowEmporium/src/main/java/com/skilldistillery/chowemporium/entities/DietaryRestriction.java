@@ -12,17 +12,21 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "dietary_restriction")
 public class DietaryRestriction {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String description;
-	
+
 	@Column(name = "image_url")
 	private String imageUrl;
+
+	public DietaryRestriction() {
+		super();
+	}
 
 	public int getId() {
 		return id;
@@ -78,9 +82,5 @@ public class DietaryRestriction {
 		return "DietaryRestriction [id=" + id + ", name=" + name + ", description=" + description + ", imageUrl="
 				+ imageUrl + "]";
 	}
-	
-	
-	
-
 
 }
