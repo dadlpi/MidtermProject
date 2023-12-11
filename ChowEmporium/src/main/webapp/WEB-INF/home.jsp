@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h2>Chow Emporium</h2>
+<h2>Welcome to the Chow Emporium</h2>
 
 ${SMOKETEST}
 
