@@ -571,3 +571,13 @@ INSERT INTO `favorite_dish` (`user_id`, `dish_id`) VALUES (1, 1);
 
 COMMIT;
 
+
+-- -----------------------------------------------------
+-- Data for table `dish_rating`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `dish_rating` (`user_id`, `dish_id`, `rating`, `remarks`, `date_created`, `last_update`) VALUES (1, 1, 4, 'Delicious but chef used too much butter', '2019-05-16 17:45:12', '2019-05-16 17:45:12');
+
+COMMIT;
+
