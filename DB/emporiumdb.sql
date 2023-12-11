@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `dish` (
   `fat_grams` INT NULL,
   `carbs_grams` INT NULL,
   `user_id` INT NOT NULL,
-  `recipe_url` VARCHAR(2000) NULL,
+  `recipe_url` VARCHAR(2000) NOT NULL,
   `meal_type_id` INT NOT NULL,
   `date_created` DATETIME NULL,
   `last_update` DATETIME NULL,
@@ -109,7 +109,6 @@ CREATE TABLE IF NOT EXISTS `user_diet` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT NULL,
-  `image_url` VARCHAR(45) NULL,
   `user_id` INT NOT NULL,
   `date_created` DATETIME NOT NULL,
   `last_update` DATETIME NOT NULL,
@@ -426,6 +425,47 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `dish`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (1, 'Easy Butter Chicken', 'Super tasty dish with an amazing flavor. ', 430, 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fs3.amazonaws.com%2Fvideo-api-prod%2Fassets%2F6e6a56c27c68410991ce7d4e4acc7dee%2FBFV8692_Easy_Butter_Chicken_Thumb.jpg&tbnid=WEtK6AIBte2kTM&vet=12ahUKEwj0_f3eqYiDAxXpOkQIHQ7CCJsQMygBegQIARBP..i&imgrefurl=https%3A%2F%2Ftasty.co%2Frecipe%2Feasy-butter-chicken&docid=-S8rv04_knEP3M&w=1080&h=1080&q=easy%20butter%20chicken%20carbs&ved=2ahUKEwj0_f3eqYiDAxXpOkQIHQ7CCJsQMygBegQIARBP', 30, 28, 14, 1, 'https://tasty.co/recipe/easy-butter-chicken', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `dietary_restriction`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `dietary_restriction` (`id`, `name`, `description`, `image_url`) VALUES (1, 'Nuts', NULL, NULL);
+INSERT INTO `dietary_restriction` (`id`, `name`, `description`, `image_url`) VALUES (2, 'Yeast', NULL, NULL);
+INSERT INTO `dietary_restriction` (`id`, `name`, `description`, `image_url`) VALUES (3, 'Histamine ', NULL, NULL);
+INSERT INTO `dietary_restriction` (`id`, `name`, `description`, `image_url`) VALUES (4, 'Lactose', NULL, NULL);
+INSERT INTO `dietary_restriction` (`id`, `name`, `description`, `image_url`) VALUES (5, 'Egg', NULL, NULL);
+INSERT INTO `dietary_restriction` (`id`, `name`, `description`, `image_url`) VALUES (6, 'Chicken', NULL, NULL);
+INSERT INTO `dietary_restriction` (`id`, `name`, `description`, `image_url`) VALUES (7, 'Nightshade', NULL, NULL);
+INSERT INTO `dietary_restriction` (`id`, `name`, `description`, `image_url`) VALUES (8, 'Caffeine', NULL, NULL);
+INSERT INTO `dietary_restriction` (`id`, `name`, `description`, `image_url`) VALUES (9, 'Gluten', NULL, NULL);
+INSERT INTO `dietary_restriction` (`id`, `name`, `description`, `image_url`) VALUES (10, 'Soy', NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `user_diet`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `user_diet` (`id`, `name`, `description`, `user_id`, `date_created`, `last_update`, `enabled`) VALUES (1, 'Body Building', 'High in protein', 1, '2021-08-23 15:26:50', '2021-08-23 15:26:50', 1);
+INSERT INTO `user_diet` (`id`, `name`, `description`, `user_id`, `date_created`, `last_update`, `enabled`) VALUES (2, 'Lean And Mean', 'Low Calorie, High Protein', 1, '2021-08-23 15:26:50', '2021-08-23 15:26:50', 2);
+INSERT INTO `user_diet` (`id`, `name`, `description`, `user_id`, `date_created`, `last_update`, `enabled`) VALUES (3, 'Detox', 'Purging that body', 1, '2021-08-23 15:26:50', '2021-08-23 15:26:50', 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `strictness`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -439,6 +479,44 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `user_diet_restriction`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `user_diet_restriction` (`diet_id`, `dietary_restriction_id`, `strictness_id`, `description`) VALUES (1, 1, 1, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `diet_category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `diet_category` (`id`, `name`) VALUES (1, 'Keto');
+INSERT INTO `diet_category` (`id`, `name`) VALUES (2, 'Vegan');
+INSERT INTO `diet_category` (`id`, `name`) VALUES (3, 'Carnivore ');
+INSERT INTO `diet_category` (`id`, `name`) VALUES (4, 'Vegaterian');
+INSERT INTO `diet_category` (`id`, `name`) VALUES (5, 'Kosher');
+INSERT INTO `diet_category` (`id`, `name`) VALUES (6, 'Halal');
+INSERT INTO `diet_category` (`id`, `name`) VALUES (7, 'Fruitarianism');
+INSERT INTO `diet_category` (`id`, `name`) VALUES (8, 'Paleolithic');
+INSERT INTO `diet_category` (`id`, `name`) VALUES (9, 'Pescatarian');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `meal_plan`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `meal_plan` (`id`, `title`, `user_id`, `date_created`, `last_update`, `enabled`, `shared`, `description`) VALUES (1, 'Champ\'s Meal', 1, '2021-08-23 15:26:50', '2021-08-23 15:26:50', 1, 2, 'I want to eat like a champ.');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `meal`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -446,6 +524,50 @@ USE `emporiumdb`;
 INSERT INTO `meal` (`id`, `name`, `description`, `image_url`) VALUES (1, 'Breakfast', NULL, NULL);
 INSERT INTO `meal` (`id`, `name`, `description`, `image_url`) VALUES (2, 'Lunch', NULL, NULL);
 INSERT INTO `meal` (`id`, `name`, `description`, `image_url`) VALUES (3, 'Dinner', NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `planned_meal`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `planned_meal` (`id`, `meal_plan_id`, `dish_id`, `meal_id`, `day_of_week`, `description`) VALUES (1, 1, 1, 2, '1', 'Gains incoming');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `cuisine`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `cuisine` (`id`, `name`) VALUES (1, 'Mexican');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (2, 'American');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (3, 'Italian');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (4, 'Mediterranean');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (5, 'Japanese');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (6, 'Korean');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (7, 'Greek');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (8, 'Indian');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (9, 'Carribean ');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (10, 'Scandinavian');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (11, 'Thai');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (12, 'Brazilian ');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (13, 'Chinese');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (14, 'Mongolian');
+INSERT INTO `cuisine` (`id`, `name`) VALUES (15, 'Lebanese');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `favorite_dish`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `favorite_dish` (`user_id`, `dish_id`) VALUES (1, 1);
 
 COMMIT;
 
