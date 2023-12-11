@@ -1,6 +1,7 @@
 package com.skilldistillery.jpachowemporium.entities;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -49,7 +50,8 @@ class CuisineTest {
 
 	@Test
 	void test() {
-		assertNull(cuisine);
+		assertNotNull(cuisine);
+		assertEquals("Mexican", cuisine.getName());
 		
 	}
 
