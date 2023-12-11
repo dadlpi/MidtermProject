@@ -188,11 +188,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `diet_catagory`
+-- Table `diet_category`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `diet_catagory` ;
+DROP TABLE IF EXISTS `diet_category` ;
 
-CREATE TABLE IF NOT EXISTS `diet_catagory` (
+CREATE TABLE IF NOT EXISTS `diet_category` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `meal_has_diet_catagory` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_meal_has_diet_catagory_diet_catagory1`
     FOREIGN KEY (`diet_catagory_id`)
-    REFERENCES `diet_catagory` (`id`)
+    REFERENCES `diet_category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -232,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `diet_catagory_has_dietary_restriction` (
   PRIMARY KEY (`diet_catagory_id`, `dietary_restriction_id`),
   CONSTRAINT `fk_diet_catagory_has_dietary_restriction_diet_catagory1`
     FOREIGN KEY (`diet_catagory_id`)
-    REFERENCES `diet_catagory` (`id`)
+    REFERENCES `diet_category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_diet_catagory_has_dietary_restriction_dietary_restriction1`
@@ -408,7 +408,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `emporiumdb`;
-INSERT INTO `user` (`id`, `enabled`, `username`, `role`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `date_created`, `last_update`, `profile_image_url`, `about_me`) VALUES (1, 1, 'joeadmin', NULL, 'admin', 'Joe', 'Admin', NULL, NULL, '2022-12-02', '2022-12-02', NULL, NULL);
+INSERT INTO `user` (`id`, `enabled`, `username`, `role`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `date_created`, `last_update`, `profile_image_url`, `about_me`) VALUES (1, 1, 'joeadmin', NULL, 'admin', 'Joe', 'Admin', NULL, NULL, '2020-05-15 15:20:36', '2020-05-15 15:20:36', NULL, NULL);
 
 COMMIT;
 
