@@ -5,7 +5,13 @@
 	 <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 
+	<class>com.skilldistillery.chowemporium.entities.Cuisine</class>
+	<class>com.skilldistillery.chowemporium.entities.Dish</class>
+	<class>com.skilldistillery.chowemporium.entities.DietaryRestriction</class>
+	<class>com.skilldistillery.chowemporium.entities.Meal</class>
+	<class>com.skilldistillery.chowemporium.entities.PlannedMeal</class>
 	<class>com.skilldistillery.chowemporium.entities.User</class>
+	<class>com.skilldistillery.chowemporium.entities.UserDiet</class>
 
 
     <properties>
