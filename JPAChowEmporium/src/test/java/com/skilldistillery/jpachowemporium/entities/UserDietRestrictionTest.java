@@ -2,7 +2,6 @@ package com.skilldistillery.jpachowemporium.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -10,17 +9,18 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.chowemporium.entities.Dish;
+import com.skilldistillery.chowemporium.entities.UserDietRestriction;
+import com.skilldistillery.chowemporium.entities.UserDietRestrictionId;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-class DishTest {
+class UserDietRestrictionTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Dish dish;
+	private UserDietRestriction userDietRestriction;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -37,48 +37,23 @@ class DishTest {
 	void setUp() throws Exception {
 
 		em = emf.createEntityManager();
-		dish = em.find(Dish.class, 1);
+
+		UserDietRestrictionId uDRID = new UserDietRestrictionId(1, 1);
+		userDietRestriction = em.find(UserDietRestriction.class, uDRID);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 
 		em.close();
-		dish = null;
+		userDietRestriction = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(dish);
-		assertEquals("Easy Butter Chicken", dish.getName());
-	}
-
-	@Test
-	void test_planned_meal_connection() {
-		assertNotNull(dish);
-		assertTrue(dish.getDishOPlannedMeals().size() > 0);
-	}
-
-	@Test
-	void test_cuisine_connection() {
-		assertNotNull(dish);
-		assertTrue(dish.getListOfCuisine().size() > 0);
-		assertEquals(dish.getListOfCuisine().get(1).getName(), "Italian");
-	}
-
-	@Test
-	void test_MTO_dish_mealType() {
-		assertNotNull(dish);
-		assertEquals(dish.getMealType().getName(), "Meal");
-
-	}
-
-	@Test
-	void test_MTM_Dish_to_DietCategory() {
-		assertNotNull(dish);
-		assertTrue(dish.getDietCategories().toString().contains("None"));
-		assertTrue(dish.getDietCategories().size() > 0);
-		System.out.println(dish.getDietCategories().toString());
+		assertNotNull(userDietRestriction);
+		assertEquals("Preference", userDietRestriction.getStrictness().getStrictnessLevel());
+		assertEquals("Body Building", userDietRestriction.getUserDiet().getName());
 
 	}
 

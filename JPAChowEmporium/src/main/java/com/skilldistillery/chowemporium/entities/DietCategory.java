@@ -1,23 +1,49 @@
 package com.skilldistillery.chowemporium.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
-@Table(name="diet_category")
+@Table(name = "diet_category")
 @Entity
 public class DietCategory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
 	
+	@ManyToMany
+	@JoinTable(name = "dish_diet_category", joinColumns = @JoinColumn(name = "diet_category_id"), inverseJoinColumns = @JoinColumn(name = "dish_id"))
+	private List<Dish> dishes;
 	
+	@ManyToMany
+	@JoinTable(name = "diet_category_has_dietary_restriction", joinColumns = @JoinColumn(name = "diet_category_id"), inverseJoinColumns = @JoinColumn(name = "dietary_restriction_id"))
+	private List<DietaryRestriction> dietaryRestrictions;
+
+	public List<DietaryRestriction> getDietaryRestriction() {
+		return dietaryRestrictions;
+	}
+
+	public void setDietaryRestriction(List<DietaryRestriction> dietaryRestriction) {
+		this.dietaryRestrictions = dietaryRestriction;
+	}
+
+	public List<Dish> getDishes() {
+		return dishes;
+	}
+
+	public void setDishes(List<Dish> dishes) {
+		this.dishes = dishes;
+	}
 
 	public DietCategory() {
 		super();
@@ -60,7 +86,5 @@ public class DietCategory {
 	public String toString() {
 		return "DietCategory [id=" + id + ", name=" + name + "]";
 	}
-	
-	
 
 }

@@ -1,6 +1,7 @@
 package com.skilldistillery.jpachowemporium.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.AfterAll;
@@ -53,6 +54,15 @@ class DietaryRestrictionTest {
 		assertNotNull(dietaryRestriction);
 		assertEquals(dietaryRestriction.getName(), "Nuts");
 		
+	}
+
+	@Test
+	void test_MTM_DCategory_DRestriction() {
+		assertNotNull(dietaryRestriction);
+//		assertTrue(dietaryRestriction.getDietCategories().toString().contains("Keto") );
+		assertFalse(dietaryRestriction.getDietCategories().size() > 0);
+		System.out.println(dietaryRestriction.getDietCategories().toString());
+
 	}
 
 }

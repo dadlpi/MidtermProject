@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -36,6 +37,9 @@ public class UserDiet {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
+	
+	@OneToMany(mappedBy = "userDiet")
+	private List<UserDietRestriction> userDietRestricitons;
 	
 //	@OneToOne
 //	@JoinTable(name = "user_diet_restriction", joinColumns = @JoinColumn(name = "diet_id"), inverseJoinColumns = @JoinColumn(name = "dietary_restriction_id"))
@@ -107,6 +111,22 @@ public class UserDiet {
 	public String toString() {
 		return "UserDiet [id=" + id + ", name=" + name + ", dateCreated=" + dateCreated
 				+ ", lastUpdate=" + lastUpdate + ", enabled=" + enabled + "]";
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<UserDietRestriction> getUserDietRestricitons() {
+		return userDietRestricitons;
+	}
+
+	public void setUserDietRestricitons(List<UserDietRestriction> userDietRestricitons) {
+		this.userDietRestricitons = userDietRestricitons;
 	}
 	
 	

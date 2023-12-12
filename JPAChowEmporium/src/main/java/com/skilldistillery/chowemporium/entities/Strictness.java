@@ -20,8 +20,6 @@ public class Strictness {
 
 	private String description;
 	
-	
-
 	public Strictness() {
 		super();
 	}

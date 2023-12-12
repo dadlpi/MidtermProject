@@ -62,7 +62,19 @@ public class Dish {
 	@JoinColumn(name="meal_type_id")
 	private MealType mealType;
 	
+	@ManyToMany
+	@JoinTable(name = "dish_diet_category", joinColumns = @JoinColumn(name = "dish_id"), inverseJoinColumns = @JoinColumn(name = "diet_category_id"))
+	private List<DietCategory> dietCategories;
 	
+	
+	public List<DietCategory> getDietCategories() {
+		return dietCategories;
+	}
+
+	public void setDietCategories(List<DietCategory> dietCategories) {
+		this.dietCategories = dietCategories;
+	}
+
 	public Dish() {
 		super();
 	}
