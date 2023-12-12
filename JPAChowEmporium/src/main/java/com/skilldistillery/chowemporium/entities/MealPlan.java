@@ -1,6 +1,7 @@
 package com.skilldistillery.chowemporium.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -10,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Table(name = "meal_plan")
@@ -38,7 +40,10 @@ public class MealPlan {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-
+	@OneToMany(mappedBy = "mealPlan")
+	private List<PlannedMeal> plannedMeals;
+	
+	
 	public MealPlan() {
 		super();
 	}
@@ -105,6 +110,14 @@ public class MealPlan {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<PlannedMeal> getPlannedMeals() {
+		return plannedMeals;
+	}
+
+	public void setPlannedMeals(List<PlannedMeal> plannedMeals) {
+		this.plannedMeals = plannedMeals;
 	}
 
 	@Override

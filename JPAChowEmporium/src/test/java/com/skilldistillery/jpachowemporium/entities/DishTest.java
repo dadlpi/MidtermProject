@@ -2,7 +2,7 @@ package com.skilldistillery.jpachowemporium.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -53,6 +53,18 @@ class DishTest {
 	void test() {
 		assertNotNull(dish);
 		assertEquals("Easy Butter Chicken", dish.getName());
+	}
+	@Test
+	void test_planned_meal_connection() {
+		assertNotNull(dish);
+		assertTrue(dish.getDishOPlannedMeals().size() > 0);
+	}
+	@Test
+	void test_cuisine_connection() {
+		assertNotNull(dish);
+		assertTrue(dish.getListOfCuisine().size() >0);
+		System.out.println(dish.getListOfCuisine());
+		
 	}
 
 }

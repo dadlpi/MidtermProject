@@ -1,6 +1,7 @@
 package com.skilldistillery.chowemporium.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -9,7 +10,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -33,6 +36,10 @@ public class UserDiet {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
+	
+//	@OneToOne
+//	@JoinTable(name = "user_diet_restriction", joinColumns = @JoinColumn(name = "diet_id"), inverseJoinColumns = @JoinColumn(name = "dietary_restriction_id"))
+//	private List<Dish> favoriteDishList;
 	
 	public UserDiet() {
 		super();

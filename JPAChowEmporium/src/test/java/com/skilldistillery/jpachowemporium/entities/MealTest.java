@@ -2,6 +2,7 @@ package com.skilldistillery.jpachowemporium.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -52,6 +53,15 @@ class MealTest {
 	void test() {
 		assertNotNull(meal);
 		assertEquals("Breakfast", meal.getName());
+		
+	}
+	
+	@Test
+	void test_planned_meal() {
+		meal = em.find(Meal.class, 2);
+		assertNotNull(meal);
+		assertTrue(meal.getPlannedMeals().size() > 0);
+		System.out.println(meal.getPlannedMeals());
 		
 	}
 

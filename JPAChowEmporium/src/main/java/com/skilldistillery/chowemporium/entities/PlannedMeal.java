@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Table(name = "planned_meal")
@@ -21,6 +23,18 @@ public class PlannedMeal {
 	private int dayOfWeek;
 	
 	private String description;
+	
+	@ManyToOne
+	@JoinColumn(name = "meal_plan_id")
+	private MealPlan mealPlan;
+	
+	@ManyToOne
+	@JoinColumn(name = "meal_id")
+	private Meal meal;
+	
+	@ManyToOne
+	@JoinColumn(name = "dish_id")
+	private Dish dish;
 	
 	
 
@@ -50,6 +64,30 @@ public class PlannedMeal {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public MealPlan getMealPlan() {
+		return mealPlan;
+	}
+
+	public void setMealPlan(MealPlan mealPlan) {
+		this.mealPlan = mealPlan;
+	}
+
+	public Meal getMeal() {
+		return meal;
+	}
+
+	public void setMeal(Meal meal) {
+		this.meal = meal;
+	}
+
+	public Dish getDish() {
+		return dish;
+	}
+
+	public void setDish(Dish dish) {
+		this.dish = dish;
 	}
 
 	@Override

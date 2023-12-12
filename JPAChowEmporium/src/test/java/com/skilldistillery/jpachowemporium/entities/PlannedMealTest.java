@@ -54,5 +54,23 @@ class PlannedMealTest {
 		assertEquals(plannedMeal.getDayOfWeek(), 1);
 		
 	}
+	@Test
+	void test_meal_plan() {
+		assertNotNull(plannedMeal);
+		assertEquals(plannedMeal.getMealPlan().getTitle(), "Champ's Meal");
+		
+	}
+	@Test
+	void test_meal_connection() {
+		assertNotNull(plannedMeal);
+		assertEquals(plannedMeal.getMeal().getName(), "Lunch");
+		
+	}
+	@Test
+	void test_dish_connection() {
+		assertNotNull(plannedMeal);
+		assertEquals(plannedMeal.getDish().getName(), "Easy Butter Chicken");
+		
+	}
 
 }

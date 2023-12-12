@@ -1,6 +1,7 @@
 package com.skilldistillery.chowemporium.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -8,6 +9,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Dish {
@@ -44,6 +49,13 @@ public class Dish {
 	private LocalDateTime lastUpdate;
 
 	private boolean enabled;
+	
+	@OneToMany(mappedBy = "dish")
+	private List<PlannedMeal> dishOPlannedMeals;
+	
+	@ManyToMany
+	@JoinTable(name = "cuisine_has_dish", joinColumns = @JoinColumn(name = "dish_id"), inverseJoinColumns = @JoinColumn(name = "cuisine_id"))
+	private List<Cuisine> listOfCuisine;
 
 	public Dish() {
 		super();
@@ -143,6 +155,22 @@ public class Dish {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public List<PlannedMeal> getDishOPlannedMeals() {
+		return dishOPlannedMeals;
+	}
+
+	public void setDishOPlannedMeals(List<PlannedMeal> dishOPlannedMeals) {
+		this.dishOPlannedMeals = dishOPlannedMeals;
+	}
+
+	public List<Cuisine> getListOfCuisine() {
+		return listOfCuisine;
+	}
+
+	public void setListOfCuisine(List<Cuisine> listOfCuisine) {
+		this.listOfCuisine = listOfCuisine;
 	}
 
 	@Override

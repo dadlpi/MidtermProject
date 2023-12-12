@@ -1,5 +1,6 @@
 package com.skilldistillery.chowemporium.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -7,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Meal {
@@ -21,6 +23,9 @@ public class Meal {
 	
 	@Column(name = "image_url")
 	private String imageUrl;
+	
+	@OneToMany(mappedBy = "meal")
+	private List<PlannedMeal> plannedMeals;
 	
 	
 
@@ -58,6 +63,14 @@ public class Meal {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public List<PlannedMeal> getPlannedMeals() {
+		return plannedMeals;
+	}
+
+	public void setPlannedMeals(List<PlannedMeal> plannedMeals) {
+		this.plannedMeals = plannedMeals;
 	}
 
 	@Override
