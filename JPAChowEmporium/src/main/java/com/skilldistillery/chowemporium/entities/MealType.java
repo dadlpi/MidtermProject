@@ -1,26 +1,37 @@
 package com.skilldistillery.chowemporium.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Table(name = "meal_type")
-@Entity 
+@Entity
 public class MealType {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String description;
-	
-	
+
+	@OneToMany(mappedBy = "mealType")
+	private List<Dish> listODishes;
+
+	public List<Dish> getListODishes() {
+		return listODishes;
+	}
+
+	public void setListODishes(List<Dish> listODishes) {
+		this.listODishes = listODishes;
+	}
 
 	public MealType() {
 		super();
@@ -71,7 +82,5 @@ public class MealType {
 	public String toString() {
 		return "MealType [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
-	
-	
 
 }

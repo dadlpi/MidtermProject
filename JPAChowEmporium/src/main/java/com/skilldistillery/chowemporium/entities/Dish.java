@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -56,9 +57,22 @@ public class Dish {
 	@ManyToMany
 	@JoinTable(name = "cuisine_has_dish", joinColumns = @JoinColumn(name = "dish_id"), inverseJoinColumns = @JoinColumn(name = "cuisine_id"))
 	private List<Cuisine> listOfCuisine;
-
+	
+	@ManyToOne
+	@JoinColumn(name="meal_type_id")
+	private MealType mealType;
+	
+	
 	public Dish() {
 		super();
+	}
+
+	public MealType getMealType() {
+		return mealType;
+	}
+
+	public void setMealType(MealType mealType) {
+		this.mealType = mealType;
 	}
 
 	public int getId() {

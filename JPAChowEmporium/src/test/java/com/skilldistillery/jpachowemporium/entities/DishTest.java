@@ -17,15 +17,15 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 class DishTest {
-	
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Dish dish;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		
-		emf= Persistence.createEntityManagerFactory("JPAChowEmporium");
+
+		emf = Persistence.createEntityManagerFactory("JPAChowEmporium");
 	}
 
 	@AfterAll
@@ -35,36 +35,42 @@ class DishTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		
+
 		em = emf.createEntityManager();
-		dish= em.find(Dish.class, 1);
+		dish = em.find(Dish.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		
+
 		em.close();
 		dish = null;
 	}
-	
-	
 
 	@Test
 	void test() {
 		assertNotNull(dish);
 		assertEquals("Easy Butter Chicken", dish.getName());
 	}
+
 	@Test
 	void test_planned_meal_connection() {
 		assertNotNull(dish);
 		assertTrue(dish.getDishOPlannedMeals().size() > 0);
 	}
+
 	@Test
 	void test_cuisine_connection() {
 		assertNotNull(dish);
-		assertTrue(dish.getListOfCuisine().size() >0);
-		System.out.println(dish.getListOfCuisine());
-		
+		assertTrue(dish.getListOfCuisine().size() > 0);
+		assertEquals(dish.getListOfCuisine().get(1).getName(), "Italian");
+	}
+
+	@Test
+	void test_MTO_dish_mealType() {
+		assertNotNull(dish);
+		assertEquals(dish.getMealType().getName(), "Meal");
+
 	}
 
 }
