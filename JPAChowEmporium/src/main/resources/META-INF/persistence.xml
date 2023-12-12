@@ -16,6 +16,8 @@
 	<class>com.skilldistillery.chowemporium.entities.Strictness</class>
 	<class>com.skilldistillery.chowemporium.entities.User</class>
 	<class>com.skilldistillery.chowemporium.entities.UserDiet</class>
+	<class>com.skilldistillery.chowemporium.entities.UserDietRestriction</class>
+	<class>com.skilldistillery.chowemporium.entities.UserDietRestrictionId</class>
 
 
     <properties>
