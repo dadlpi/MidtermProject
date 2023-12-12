@@ -573,6 +573,19 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `cuisine_has_dish`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (2, 1);
+INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (3, 1);
+INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (8, 1);
+INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (12, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `dish_rating`
 -- -----------------------------------------------------
 START TRANSACTION;
