@@ -199,11 +199,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `dish_diet_catagory`
+-- Table `dish_diet_category`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dish_diet_catagory` ;
+DROP TABLE IF EXISTS `dish_diet_category` ;
 
-CREATE TABLE IF NOT EXISTS `dish_diet_catagory` (
+CREATE TABLE IF NOT EXISTS `dish_diet_category` (
   `dish_id` INT NOT NULL,
   `diet_catagory_id` INT NOT NULL,
   PRIMARY KEY (`dish_id`, `diet_catagory_id`),
@@ -221,11 +221,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `diet_catagory_has_dietary_restriction`
+-- Table `diet_category_has_dietary_restriction`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `diet_catagory_has_dietary_restriction` ;
+DROP TABLE IF EXISTS `diet_category_has_dietary_restriction` ;
 
-CREATE TABLE IF NOT EXISTS `diet_catagory_has_dietary_restriction` (
+CREATE TABLE IF NOT EXISTS `diet_category_has_dietary_restriction` (
   `diet_catagory_id` INT NOT NULL,
   `dietary_restriction_id` INT NOT NULL,
   PRIMARY KEY (`diet_catagory_id`, `dietary_restriction_id`),
@@ -521,11 +521,11 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `dish_diet_catagory`
+-- Data for table `dish_diet_category`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `emporiumdb`;
-INSERT INTO `dish_diet_catagory` (`dish_id`, `diet_catagory_id`) VALUES (1, 10);
+INSERT INTO `dish_diet_category` (`dish_id`, `diet_catagory_id`) VALUES (1, 10);
 
 COMMIT;
 
