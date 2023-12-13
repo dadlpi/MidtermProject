@@ -4,5 +4,6 @@ import com.skilldistillery.chowemporium.entities.User;
 
 public interface UserDAO {
 
+	User CreateBrandNewUser(User newCreateUser);
 	User authenticateUser(String username, String password);
 }

@@ -30,6 +30,26 @@ public class UserDaoImpl implements UserDAO {
 		
 		return user;
 	}
+
+	@Override
+	public User CreateBrandNewUser(User newCreateUser) {
+//		em.getTransaction().begin();
+//		System.out.println(newCreateUser.getFirstName());
+//		System.out.println("before persist: " + actor);
+		em.persist(newCreateUser);
+//		System.out.println("After persist: " + actor);
+		
+//		em.getTransaction().commit();
+//		em.close();
+		
+//		if (newCreateUser != null) {
+//			return true;
+//		}
+//		else {
+//			
+			return newCreateUser;
+//		}
+	}
 	
 
 }
