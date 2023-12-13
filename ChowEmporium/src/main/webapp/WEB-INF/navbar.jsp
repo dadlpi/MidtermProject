@@ -18,12 +18,14 @@
 	<nav class="navbar">
 		<a href="displaySingularMeal.do">Display Singular Meal</a> <a
 			href="displayListOfMeals.do">Display List of Meals</a>
+			<a href="home.do">Home</a>
 
 		<c:if test="${not empty sessionScope.loggedInUser}">
 			<a href="account.do">Account</a>
 			<a href="userHome.do">User Home</a>
 			<a href="mealCalendar.do">Meal Calendar</a>
 			<a href="logout.do">LogOut</a>
+			
 		</c:if>
 
 		<c:if test="${empty sessionScope.loggedInUser}">
@@ -42,26 +44,27 @@
 					<label for="username" class="form-label">Username</label> <input
 						type="text" class="form-control" name="username">
 				</div>
-				
+
 				<div class="mb-3">
 					<label for="exampleDropdownFormPassword2" class="form-label">Password</label>
 					<input type="password" name="password" class="form-control"
 						placeholder="Password">
 				</div>
-				
+
 				<div class="mb-3">
 					<div class="form-check">
 						<input type="checkbox" class="form-check-input"
 							id="dropdownCheck2"> <label class="form-check-label"
 							for="dropdownCheck2"> Remember me </label>
 					</div>
-					
+
 				</div>
 				<input type="submit" class="btn btn-primary">Sign in</input>
 			</form>
 
 
-
+			<a href="register.do">Register</a>
+			
 			</div>
 		</c:if>
 
