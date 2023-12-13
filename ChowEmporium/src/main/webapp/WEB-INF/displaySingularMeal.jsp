@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-
+<%@ include file="navbar.jsp"%>
 
 
 <h1>Hello Singluar Meal</h1>

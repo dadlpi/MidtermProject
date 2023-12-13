@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<%@ include file="navbar.jsp"%>
     <div class="container text-center">
         <div>
             <h1>User Registration - Sign Up</h1>

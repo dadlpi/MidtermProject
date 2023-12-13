@@ -17,25 +17,8 @@
     <header class = "header">
         
              <h1 class="title">Chow Emporium</h1>
-        
-        <nav class="navbar">
-            <a href="displaySingularMeal.do">Display Singular Meal</a>
-            <a href="displayListOfMeals.do">Display List of Meals</a>
-            
-            <c:if test="${not empty sessionScope.user}">
-        		<a href="account.do">Account</a>
-	            <a href="userHome.do">User Home</a>
-	            <a href="mealCalendar.do">Meal Calendar</a>
-		    	<a href="logOut.do">LogOut</a>
-    		</c:if>
-    		
-    		<c:if test="${empty sessionScope.user}">
-            	<a href="register.do">Register</a>
-            	<a href="login.do">Login</a>
-        			<!-- Add links for login or other actions when user is not logged in -->
-    		</c:if>
-    		
-        </nav>
+        	
+    <jsp:include page="navbar.jsp"/>
     </header>
 
 
@@ -46,7 +29,7 @@
         			<!-- Add links for login or other actions when user is not logged in -->
     		</c:if>
     		
-${SMOKETEST}
+
 
 
 
