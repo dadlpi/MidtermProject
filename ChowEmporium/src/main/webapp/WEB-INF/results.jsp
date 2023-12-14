@@ -4,12 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Results Page</title>
 </head>
 <body>
 
 
 <h1>Results Page</h1>
+
+<h3>Logged in user =  ${loggedInUser.firstName} ${loggedInUser.lastName}</h3>
 
 </body>
 </html>

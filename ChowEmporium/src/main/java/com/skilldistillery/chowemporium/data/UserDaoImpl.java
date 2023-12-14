@@ -1,5 +1,8 @@
 package com.skilldistillery.chowemporium.data;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.chowemporium.entities.User;
@@ -43,14 +46,20 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public User updateUser(User user) {
 		User userChanged = em.find(User.class, user.getId());
+		
+		if (userChanged != null) {
+//		userChanged.setId(user.getId());
 		userChanged.setFirstName(user.getFirstName());
 		userChanged.setLastName(user.getLastName());
 		userChanged.setEmail(user.getEmail());
-		userChanged.setAboutMe(user.getAboutMe());
+		userChanged.setProfileImage(user.getProfileImage());
+//		userChanged.setAboutMe(user.getAboutMe()); //Removed for MVP functionality
 		userChanged.setPassword(user.getPassword());
-
+		userChanged.setLastUpdated(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+		
 		em.flush();
 
+		}
 		return userChanged;
 	}
 
