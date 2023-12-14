@@ -506,6 +506,7 @@ INSERT INTO `diet_category` (`id`, `name`) VALUES (6, 'Halal');
 INSERT INTO `diet_category` (`id`, `name`) VALUES (7, 'Fruitarianism');
 INSERT INTO `diet_category` (`id`, `name`) VALUES (8, 'Paleolithic');
 INSERT INTO `diet_category` (`id`, `name`) VALUES (9, 'Pescatarian');
+INSERT INTO `diet_category` (`id`, `name`) VALUES (10, 'None');
 
 COMMIT;
 
