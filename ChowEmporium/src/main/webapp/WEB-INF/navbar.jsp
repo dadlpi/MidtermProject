@@ -16,9 +16,10 @@
 
 
 	<nav class="navbar">
-		<a href="displaySingularMeal.do">Display Singular Meal</a> <a
-			href="displayListOfMeals.do">Display List of Meals</a>
-			<a href="home.do">Home</a>
+	<h1 class="title">Chow Emporium</h1>
+		<a href="displaySingularMeal.do" class="title">Display Singular Meal</a> <a
+			href="displayListOfMeals.do" class="title">Display List of Meals</a>
+			<a href="home.do" class="title">Home</a>
 
 		<c:if test="${not empty sessionScope.loggedInUser}">
 			<a href="account.do">Account</a>
@@ -34,7 +35,7 @@
 					<button type="button" class="btn btn-primary dropdown-toggle"
 						data-bs-toggle="dropdown" aria-expanded="false"
 						data-bs-auto-close="true">Login</button>
-			</form>
+			
 
 
 
@@ -42,24 +43,18 @@
 			<form action="navbar.do" method="POST" class="p-4">
 				<div class="mb-3">
 					<label for="username" class="form-label">Username</label> <input
-						type="text" class="form-control" name="username">
+						type="text" class="form-control" name="username" placeholder="Username">
+						
 				</div>
 
 				<div class="mb-3">
 					<label for="exampleDropdownFormPassword2" class="form-label">Password</label>
 					<input type="password" name="password" class="form-control"
 						placeholder="Password">
-				</div>
-
-				<div class="mb-3">
-					<div class="form-check">
-						<input type="checkbox" class="form-check-input"
-							id="dropdownCheck2"> <label class="form-check-label"
-							for="dropdownCheck2"> Remember me </label>
-					</div>
 
 				</div>
-				<input type="submit" class="btn btn-primary">Sign in</input>
+				<input type="submit" class="btn btn-primary" value = "Sign in"></input>
+			</form>
 			</form>
 
 

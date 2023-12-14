@@ -16,7 +16,6 @@
 
     <header class = "header">
         
-             <h1 class="title">Chow Emporium</h1>
         	
     <jsp:include page="navbar.jsp"/>
     </header>
