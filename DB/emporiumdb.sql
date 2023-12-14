@@ -59,10 +59,10 @@ DROP TABLE IF EXISTS `dish` ;
 
 CREATE TABLE IF NOT EXISTS `dish` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(60) NOT NULL,
   `description` TEXT NULL,
   `calories` INT NULL,
-  `image_url` VARCHAR(2000) NULL,
+  `image_url` VARCHAR(4000) NULL,
   `protein_grams` INT NULL,
   `fat_grams` INT NULL,
   `carbs_grams` INT NULL,
@@ -165,16 +165,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `dietary_friendly_dish`
+-- Table `meal_has_dietary_restriction`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dietary_friendly_dish` ;
+DROP TABLE IF EXISTS `meal_has_dietary_restriction` ;
 
-CREATE TABLE IF NOT EXISTS `dietary_friendly_dish` (
-  `dish_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `meal_has_dietary_restriction` (
+  `meal_id` INT NOT NULL,
   `dietary_restriction_id` INT NOT NULL,
-  PRIMARY KEY (`dish_id`, `dietary_restriction_id`),
+  PRIMARY KEY (`meal_id`, `dietary_restriction_id`),
   CONSTRAINT `fk_meal_has_dietary_restriction_meal1`
-    FOREIGN KEY (`dish_id`)
+    FOREIGN KEY (`meal_id`)
     REFERENCES `dish` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -199,21 +199,21 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `dish_diet_category`
+-- Table `meal_has_diet_catagory`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dish_diet_category` ;
+DROP TABLE IF EXISTS `meal_has_diet_catagory` ;
 
-CREATE TABLE IF NOT EXISTS `dish_diet_category` (
-  `dish_id` INT NOT NULL,
-  `diet_category_id` INT NOT NULL,
-  PRIMARY KEY (`dish_id`, `diet_category_id`),
+CREATE TABLE IF NOT EXISTS `meal_has_diet_catagory` (
+  `meal_id` INT NOT NULL,
+  `diet_catagory_id` INT NOT NULL,
+  PRIMARY KEY (`meal_id`, `diet_catagory_id`),
   CONSTRAINT `fk_meal_has_diet_catagory_meal1`
-    FOREIGN KEY (`dish_id`)
+    FOREIGN KEY (`meal_id`)
     REFERENCES `dish` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_meal_has_diet_catagory_diet_catagory1`
-    FOREIGN KEY (`diet_category_id`)
+    FOREIGN KEY (`diet_catagory_id`)
     REFERENCES `diet_category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -221,16 +221,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `diet_category_has_dietary_restriction`
+-- Table `diet_catagory_has_dietary_restriction`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `diet_category_has_dietary_restriction` ;
+DROP TABLE IF EXISTS `diet_catagory_has_dietary_restriction` ;
 
-CREATE TABLE IF NOT EXISTS `diet_category_has_dietary_restriction` (
-  `diet_category_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `diet_catagory_has_dietary_restriction` (
+  `diet_catagory_id` INT NOT NULL,
   `dietary_restriction_id` INT NOT NULL,
-  PRIMARY KEY (`diet_category_id`, `dietary_restriction_id`),
+  PRIMARY KEY (`diet_catagory_id`, `dietary_restriction_id`),
   CONSTRAINT `fk_diet_catagory_has_dietary_restriction_diet_catagory1`
-    FOREIGN KEY (`diet_category_id`)
+    FOREIGN KEY (`diet_catagory_id`)
     REFERENCES `diet_category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -430,6 +430,10 @@ COMMIT;
 START TRANSACTION;
 USE `emporiumdb`;
 INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (1, 'Easy Butter Chicken', 'Super tasty dish with an amazing flavor. ', 430, 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fs3.amazonaws.com%2Fvideo-api-prod%2Fassets%2F6e6a56c27c68410991ce7d4e4acc7dee%2FBFV8692_Easy_Butter_Chicken_Thumb.jpg&tbnid=WEtK6AIBte2kTM&vet=12ahUKEwj0_f3eqYiDAxXpOkQIHQ7CCJsQMygBegQIARBP..i&imgrefurl=https%3A%2F%2Ftasty.co%2Frecipe%2Feasy-butter-chicken&docid=-S8rv04_knEP3M&w=1080&h=1080&q=easy%20butter%20chicken%20carbs&ved=2ahUKEwj0_f3eqYiDAxXpOkQIHQ7CCJsQMygBegQIARBP', 30, 28, 14, 1, 'https://tasty.co/recipe/easy-butter-chicken', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
+INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (2, 'Veggie Garlic Noodles', 'Its good if you like veggies', 365, 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/tips/67a4489f9c30452999e10176b7a09e23.jpeg?downsize=800:*&output-format=auto&output-quality=auto', 7, 7, 66, 1, 'https://tasty.co/recipe/veggie-garlic-noodles', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
+INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (3, 'Sheet Pan Quesadilla with Jalapeño Ranch', 'Spicy but yum yum yum deliciouso', 542, 'https://images.themodernproper.com/billowy-turkey/production/posts/2020/sheetpan-quesadilla-9.jpg?w=800&q=82&fm=jpg&fit=crop&dm=1603458592&s=512107d73984dfb25b200d1521e95934', 13, 34, 48, 1, 'https://themodernproper.com/sheet-pan-quesadilla-with-jalapeno-ranch', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
+INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (4, 'Swedish Meatballs (Svenska Kottbullar)', 'A Nordic master piece  ', 309, 'https://www.allrecipes.com/thmb/2ndh4FTc4_n0i0aLhjTiB7MCFkE=/160x90/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/216564-swedish-meatballs-svenska-kottbullar-DDMFS-4x3-2cfaeac162c9485dbd7d632fd0b6ef0a.jpg', 17, 21, 12, 1, 'https://allrecipes.com/recipe/216564/swedish-meatballs-svenska-kottbullar/', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
+INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (5, 'Authentic Swedish Pancakes\n', 'A divine breakfast delight', 66, 'https://www.allrecipes.com/thmb/sfOBZQ8Q3FEux9XBnaKhLtTsR48=/160x90/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/246952authentic-swedish-pancakeslutzflcat4x3-b41c3fdea3e04adc8eec0df7fd2f6b9f.jpg', 3, 3, 8, 1, 'https://www.allrecipes.com/recipe/246952/authentic-swedish-pancakes/', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
 
 COMMIT;
 
@@ -489,19 +493,6 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `dietary_friendly_dish`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `emporiumdb`;
-INSERT INTO `dietary_friendly_dish` (`dish_id`, `dietary_restriction_id`) VALUES (1, 6);
-INSERT INTO `dietary_friendly_dish` (`dish_id`, `dietary_restriction_id`) VALUES (1, 4);
-INSERT INTO `dietary_friendly_dish` (`dish_id`, `dietary_restriction_id`) VALUES (1, 3);
-INSERT INTO `dietary_friendly_dish` (`dish_id`, `dietary_restriction_id`) VALUES (1, 9);
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `diet_category`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -515,17 +506,6 @@ INSERT INTO `diet_category` (`id`, `name`) VALUES (6, 'Halal');
 INSERT INTO `diet_category` (`id`, `name`) VALUES (7, 'Fruitarianism');
 INSERT INTO `diet_category` (`id`, `name`) VALUES (8, 'Paleolithic');
 INSERT INTO `diet_category` (`id`, `name`) VALUES (9, 'Pescatarian');
-INSERT INTO `diet_category` (`id`, `name`) VALUES (10, 'None');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `dish_diet_category`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `emporiumdb`;
-INSERT INTO `dish_diet_category` (`dish_id`, `diet_category_id`) VALUES (1, 10);
 
 COMMIT;
 
@@ -558,6 +538,10 @@ COMMIT;
 START TRANSACTION;
 USE `emporiumdb`;
 INSERT INTO `planned_meal` (`id`, `meal_plan_id`, `dish_id`, `meal_id`, `day_of_week`, `description`) VALUES (1, 1, 1, 2, '1', 'Gains incoming');
+INSERT INTO `planned_meal` (`id`, `meal_plan_id`, `dish_id`, `meal_id`, `day_of_week`, `description`) VALUES (2, 1, 2, 2, '2', 'Gain outward');
+INSERT INTO `planned_meal` (`id`, `meal_plan_id`, `dish_id`, `meal_id`, `day_of_week`, `description`) VALUES (3, 1, 3, 2, '3', 'Kindve Mexican');
+INSERT INTO `planned_meal` (`id`, `meal_plan_id`, `dish_id`, `meal_id`, `day_of_week`, `description`) VALUES (4, 1, 4, 3, '4', 'Sweet and savory');
+INSERT INTO `planned_meal` (`id`, `meal_plan_id`, `dish_id`, `meal_id`, `day_of_week`, `description`) VALUES (5, 1, 5, 1, '5', 'Like Crepes but better!');
 
 COMMIT;
 
@@ -592,6 +576,8 @@ COMMIT;
 START TRANSACTION;
 USE `emporiumdb`;
 INSERT INTO `favorite_dish` (`user_id`, `dish_id`) VALUES (1, 1);
+INSERT INTO `favorite_dish` (`user_id`, `dish_id`) VALUES (1, 2);
+INSERT INTO `favorite_dish` (`user_id`, `dish_id`) VALUES (1, 5);
 
 COMMIT;
 
@@ -605,6 +591,12 @@ INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (2, 1);
 INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (3, 1);
 INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (8, 1);
 INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (12, 1);
+INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (2, 2);
+INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (13, 2);
+INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (1, 3);
+INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (2, 3);
+INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (10, 4);
+INSERT INTO `cuisine_has_dish` (`cuisine_id`, `dish_id`) VALUES (10, 5);
 
 COMMIT;
 
@@ -615,6 +607,10 @@ COMMIT;
 START TRANSACTION;
 USE `emporiumdb`;
 INSERT INTO `dish_rating` (`user_id`, `dish_id`, `rating`, `remarks`, `date_created`, `last_update`) VALUES (1, 1, 4, 'Delicious but chef used too much butter', '2019-05-16 17:45:12', '2019-05-16 17:45:12');
+INSERT INTO `dish_rating` (`user_id`, `dish_id`, `rating`, `remarks`, `date_created`, `last_update`) VALUES (1, 2, 5, 'Outstanding!', '2019-05-16 17:45:12', '2019-05-16 17:45:12');
+INSERT INTO `dish_rating` (`user_id`, `dish_id`, `rating`, `remarks`, `date_created`, `last_update`) VALUES (1, 3, 3, 'Not mexican enough', '2019-05-16 17:45:12', '2019-05-16 17:45:12');
+INSERT INTO `dish_rating` (`user_id`, `dish_id`, `rating`, `remarks`, `date_created`, `last_update`) VALUES (1, 4, 2, 'too much meat on those balls! ', '2019-05-16 17:45:12', '2019-05-16 17:45:12');
+INSERT INTO `dish_rating` (`user_id`, `dish_id`, `rating`, `remarks`, `date_created`, `last_update`) VALUES (1, 5, 5, 'By far the best Dish ! Boogie Boogie', '2019-05-16 17:45:12', '2019-05-16 17:45:12');
 
 COMMIT;
 
