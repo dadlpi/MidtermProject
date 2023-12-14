@@ -66,7 +66,26 @@ public class UserController {
 			session.setAttribute("loggedInUser", validateUser);
 			return "userHome";
 		}
+	}
+
+	@RequestMapping(path = {"updateUserForm.do"}, method = RequestMethod.GET)
+	public String updateUserForm() {
+	return "updateUserForm";	
+	}
 		
+
+	@RequestMapping(path = {"updateUserAtDb.do"}, method = RequestMethod.POST)
+	public String updateUser(User user, HttpSession session) {
+		User controllerUser = (User) session.getAttribute("loggedInUser");
+		
+		
+		user.setId(controllerUser.getId());
+		
+		user = userDao.updateUser(user);
+			
+		session.setAttribute("loggedInUser", user);
+
+		return "results";
 		
 	}
 	

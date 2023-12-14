@@ -14,6 +14,15 @@
 <h2>gobbledy  goop </h2>
 
 
+<a href="updateUserForm.do"><h4>Update User Account</h4></a>
+
+<p>-Add a dish
+-update a dish
+-delete a dish
+-add to calendar</p>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </div>

@@ -25,6 +25,21 @@ body {
 	
 }
 
+.userUpdate{
+	margin: auto;
+	align-content: center;
+	position: relative;
+	padding: 10px;
+	align-items: center;
+	display: flex;
+	border: 3px solid blue;
+	width: auto;
+	height: auto;
+	text-align: center;
+	
+}
+
+
 
 .navbar .form-control{
 	background-color: grey;	
