@@ -165,16 +165,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `meal_has_dietary_restriction`
+-- Table `dietary_friendly_dish`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `meal_has_dietary_restriction` ;
+DROP TABLE IF EXISTS `dietary_friendly_dish` ;
 
-CREATE TABLE IF NOT EXISTS `meal_has_dietary_restriction` (
-  `meal_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `dietary_friendly_dish` (
+  `dish_id` INT NOT NULL,
   `dietary_restriction_id` INT NOT NULL,
-  PRIMARY KEY (`meal_id`, `dietary_restriction_id`),
+  PRIMARY KEY (`dish_id`, `dietary_restriction_id`),
   CONSTRAINT `fk_meal_has_dietary_restriction_meal1`
-    FOREIGN KEY (`meal_id`)
+    FOREIGN KEY (`dish_id`)
     REFERENCES `dish` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -199,21 +199,21 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `meal_has_diet_catagory`
+-- Table `dish_diet_category`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `meal_has_diet_catagory` ;
+DROP TABLE IF EXISTS `dish_diet_category` ;
 
-CREATE TABLE IF NOT EXISTS `meal_has_diet_catagory` (
-  `meal_id` INT NOT NULL,
-  `diet_catagory_id` INT NOT NULL,
-  PRIMARY KEY (`meal_id`, `diet_catagory_id`),
+CREATE TABLE IF NOT EXISTS `dish_diet_category` (
+  `dish_id` INT NOT NULL,
+  `diet_category_id` INT NOT NULL,
+  PRIMARY KEY (`dish_id`, `diet_category_id`),
   CONSTRAINT `fk_meal_has_diet_catagory_meal1`
-    FOREIGN KEY (`meal_id`)
+    FOREIGN KEY (`dish_id`)
     REFERENCES `dish` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_meal_has_diet_catagory_diet_catagory1`
-    FOREIGN KEY (`diet_catagory_id`)
+    FOREIGN KEY (`diet_category_id`)
     REFERENCES `diet_category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -221,16 +221,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `diet_catagory_has_dietary_restriction`
+-- Table `diet_category_has_dietary_restriction`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `diet_catagory_has_dietary_restriction` ;
+DROP TABLE IF EXISTS `diet_category_has_dietary_restriction` ;
 
-CREATE TABLE IF NOT EXISTS `diet_catagory_has_dietary_restriction` (
-  `diet_catagory_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `diet_category_has_dietary_restriction` (
+  `diet_category_id` INT NOT NULL,
   `dietary_restriction_id` INT NOT NULL,
-  PRIMARY KEY (`diet_catagory_id`, `dietary_restriction_id`),
+  PRIMARY KEY (`diet_category_id`, `dietary_restriction_id`),
   CONSTRAINT `fk_diet_catagory_has_dietary_restriction_diet_catagory1`
-    FOREIGN KEY (`diet_catagory_id`)
+    FOREIGN KEY (`diet_category_id`)
     REFERENCES `diet_category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
