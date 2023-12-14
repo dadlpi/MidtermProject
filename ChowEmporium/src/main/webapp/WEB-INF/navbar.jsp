@@ -30,7 +30,7 @@
 		</c:if>
 
 		<c:if test="${empty sessionScope.loggedInUser}">
-			<form>
+		
 				<div class="dropdown">
 					<button type="button" class="btn btn-primary dropdown-toggle"
 						data-bs-toggle="dropdown" aria-expanded="false"
@@ -53,9 +53,9 @@
 						placeholder="Password">
 
 				</div>
-				<input type="submit" class="btn btn-primary" value = "Sign in"></input>
+				<input type="submit" class="btn btn-primary" value = "Sign in"></input> 
 			</form>
-			</form>
+			
 
 
 			<a href="register.do">Register</a>
