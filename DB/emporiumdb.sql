@@ -512,6 +512,16 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `dish_diet_category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emporiumdb`;
+INSERT INTO `dish_diet_category` (`dish_id`, `diet_category_id`) VALUES (1, 10);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `meal_plan`
 -- -----------------------------------------------------
 START TRANSACTION;
