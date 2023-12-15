@@ -1,5 +1,6 @@
 package com.skilldistillery.chowemporium.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -55,6 +56,22 @@ public class Cuisine {
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+	
+	
+	public void addDish(Dish dish) {
+		if (cuisineDishes == null ) { cuisineDishes = new ArrayList<>();}
+		if (! cuisineDishes.contains(dish)) {
+			cuisineDishes.add(dish);
+			dish.addCuisine(this);
+		}
+	}
+	
+//	public void removeActor(Actor actor) {
+//		if (actors != null && actors.contains(actor)) {
+//			actors.remove(actor);
+//			actor.removeFilm(this); 
+//		}
+//	}
 
 	@Override
 	public boolean equals(Object obj) {

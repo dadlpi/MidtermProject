@@ -1,5 +1,6 @@
 package com.skilldistillery.chowemporium.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -73,10 +74,6 @@ public class DietaryRestriction {
 		this.imageUrl = imageUrl;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
 
 	public List<DietCategory> getDietCategories() {
 		return dietCategories;
@@ -86,6 +83,18 @@ public class DietaryRestriction {
 		this.dietCategories = dietCategories;
 	}
 
+	public List<UserDietRestriction> getUserDietRestricitons() {
+		return userDietRestricitons;
+	}
+	
+	public void setUserDietRestricitons(List<UserDietRestriction> userDietRestricitons) {
+		this.userDietRestricitons = userDietRestricitons;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -104,12 +113,5 @@ public class DietaryRestriction {
 				+ imageUrl + "]";
 	}
 
-	public List<UserDietRestriction> getUserDietRestricitons() {
-		return userDietRestricitons;
-	}
-
-	public void setUserDietRestricitons(List<UserDietRestriction> userDietRestricitons) {
-		this.userDietRestricitons = userDietRestricitons;
-	}
 
 }

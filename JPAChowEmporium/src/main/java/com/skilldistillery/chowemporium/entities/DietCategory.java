@@ -1,5 +1,6 @@
 package com.skilldistillery.chowemporium.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -65,6 +66,14 @@ public class DietCategory {
 		this.name = name;
 	}
 
+	public void addDish(Dish dish) {
+		if (dishes == null ) { dishes = new ArrayList<>();}
+		if (! dishes.contains(dish)) {
+			dishes.add(dish);
+			dish.addDietCategory(this);
+		}
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

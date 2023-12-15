@@ -84,5 +84,14 @@ class UserTest {
 		assertTrue(user.getMealPlans().size() > 0);
 
 	}
+	@Test
+	void test_dish_connection() {
+//		user = em.find(User.class, 1);
+		assertNotNull(user);
+		assertTrue(user.getUserCreatedDishes().size() >0 );
+		assertTrue(user.getUserCreatedDishes().toString().contains("Veggie"));
+		System.out.println(user.getUserCreatedDishes());
+		
+	}
 
 }

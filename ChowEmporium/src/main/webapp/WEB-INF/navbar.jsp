@@ -27,7 +27,7 @@
 			<a href="userHome.do">User Home</a>
 			<a href="mealCalendar.do">Meal Calendar</a>
 			<a href="logout.do">LogOut</a>
-			
+			<a href="addDishForm.do"> add dish</a>
 		</c:if>
 
 		<c:if test="${empty sessionScope.loggedInUser}">

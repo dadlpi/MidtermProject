@@ -1,8 +1,12 @@
 package com.skilldistillery.chowemporium.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -43,13 +47,21 @@ public class Dish {
 	@Column(name = "recipe_url")
 	private String recipeUrl;
 
+	@CreationTimestamp
 	@Column(name = "date_created")
 	private LocalDateTime dateCreated;
 
+	@UpdateTimestamp
 	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
 
 	private boolean enabled;
+	
+//	finish relationship mapping
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User creator;
 	
 	@OneToMany(mappedBy = "dish")
 	private List<PlannedMeal> dishOPlannedMeals;
@@ -65,6 +77,9 @@ public class Dish {
 	@ManyToMany
 	@JoinTable(name = "dish_diet_category", joinColumns = @JoinColumn(name = "dish_id"), inverseJoinColumns = @JoinColumn(name = "diet_category_id"))
 	private List<DietCategory> dietCategories;
+	@ManyToMany
+	@JoinTable(name = "dietary_friendly_dish", joinColumns = @JoinColumn(name = "dish_id"), inverseJoinColumns = @JoinColumn(name = "dietary_restriction_id"))
+	private List<DietaryRestriction> dietaryRestrictions;
 	
 	
 	public List<DietCategory> getDietCategories() {
@@ -198,6 +213,51 @@ public class Dish {
 	public void setListOfCuisine(List<Cuisine> listOfCuisine) {
 		this.listOfCuisine = listOfCuisine;
 	}
+	
+	
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+
+	public List<DietaryRestriction> getDietaryRestrictions() {
+		return dietaryRestrictions;
+	}
+
+	public void setDietaryRestrictions(List<DietaryRestriction> dietaryRestrictions) {
+		this.dietaryRestrictions = dietaryRestrictions;
+	}
+
+	public void addCuisine(Cuisine cuisine) {
+		if (listOfCuisine == null ) { listOfCuisine = new ArrayList<>();}
+		if (! listOfCuisine.contains(cuisine)) {
+			listOfCuisine.add(cuisine);
+			cuisine.addDish(this);
+		}
+	}
+	public void addDietCategory(DietCategory dietCategory) {
+		if (dietCategories == null ) { dietCategories = new ArrayList<>();}
+		if (! dietCategories.contains(dietCategory)) {
+			dietCategories.add(dietCategory);
+			dietCategory.addDish(this);
+		}
+	}
+	public void addDietaryRestriction(DietaryRestriction dietaryRestriction) {
+		if (dietaryRestriction == null ) { dietaryRestrictions = new ArrayList<>();}
+		if (! dietaryRestrictions.contains(dietaryRestriction)) {
+			dietaryRestrictions.add(dietaryRestriction);
+		}
+	}
+	
+//	public void removeActor(Actor actor) {
+//		if (actors != null && actors.contains(actor)) {
+//			actors.remove(actor);
+//			actor.removeFilm(this); 
+//		}
+//	}
 
 	@Override
 	public int hashCode() {

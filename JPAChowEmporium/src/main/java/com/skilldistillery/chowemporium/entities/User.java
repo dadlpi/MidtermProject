@@ -63,6 +63,9 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<MealPlan> mealPlans;
+	
+	@OneToMany(mappedBy = "creator")
+	private List<Dish> userCreatedDishes;
 
 	@ManyToMany
 	@JoinTable(name = "favorite_dish", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "dish_id"))
@@ -218,6 +221,14 @@ public class User {
 
 	public void setRatedDishes(List<Dish> ratedDishes) {
 		this.ratedDishes = ratedDishes;
+	}
+
+	public List<Dish> getUserCreatedDishes() {
+		return userCreatedDishes;
+	}
+
+	public void setUserCreatedDishes(List<Dish> userCreatedDishes) {
+		this.userCreatedDishes = userCreatedDishes;
 	}
 
 	@Override

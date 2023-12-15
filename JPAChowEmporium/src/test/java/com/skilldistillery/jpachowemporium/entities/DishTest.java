@@ -81,5 +81,13 @@ class DishTest {
 		System.out.println(dish.getDietCategories().toString());
 
 	}
+	@Test
+	void test_MTO_User_Connection() {
+		assertNotNull(dish);
+		assertNotNull(dish.getCreator());
+		assertEquals(dish.getCreator().getFirstName(), "Joe");
+		
+		
+	}
 
 }
