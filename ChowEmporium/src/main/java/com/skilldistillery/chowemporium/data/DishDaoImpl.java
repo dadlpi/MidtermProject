@@ -32,8 +32,6 @@ public class DishDaoImpl implements DishDAO {
 		dishChanged.setCalories(dish.getCarbsGrams()); // dropdown tab
 		dishChanged.setCarbsGrams(dish.getCarbsGrams()); // dropdown tab
 		dishChanged.setFatGrams(dish.getFatGrams());// dropdown tab
-		dishChanged.setMealType(dish.getMealType());// dropdown tab
-		dishChanged.setListOfCuisine(dish.getListOfCuisine());// dropdown tab
 
 		em.flush();
 
@@ -90,6 +88,12 @@ public class DishDaoImpl implements DishDAO {
 				
 				
 			return newDish;
+		}
+
+		@Override
+		public Dish findById(int dishId) {
+			
+			return em.find(Dish.class, dishId);
 		}
 
 }

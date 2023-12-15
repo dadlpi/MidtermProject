@@ -5,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.chowemporium.entities.Dish;
 import com.skilldistillery.chowemporium.entities.User;
 
 import jakarta.persistence.EntityManager;
@@ -25,6 +26,7 @@ public class UserDaoImpl implements UserDAO {
 		try {
 			user = em.createQuery(jpql, User.class).setParameter("un", username).setParameter("pw", password)
 					.getSingleResult();
+			user.getUserCreatedDishes().size();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,6 +80,14 @@ public class UserDaoImpl implements UserDAO {
 		}
 
 		return userIsActive;
+	}
+
+	@Override
+	public User findUser(int userId) {
+		
+
+		return em.find(User.class, userId);
+		
 	}
 
 }

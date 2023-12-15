@@ -12,4 +12,5 @@ public interface DishDAO {
 	Dish updateDish(Dish dish);
 	boolean deleteDish(Dish dish);
 	List<Dish> findAll();
+	Dish findById(int dishId);
 }

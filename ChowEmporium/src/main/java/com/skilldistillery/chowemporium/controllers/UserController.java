@@ -67,11 +67,16 @@ public class UserController {
 			return "userHome";
 		}
 	}
+	
+	
+	
 
 	@RequestMapping(path = {"updateUserForm.do"}, method = RequestMethod.GET)
 	public String updateUserForm() {
 	return "updateUserForm";	
 	}
+	
+	
 		
 
 	@RequestMapping(path = {"updateUserAtDb.do"}, method = RequestMethod.POST)
