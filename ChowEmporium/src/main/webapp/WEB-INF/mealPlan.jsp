@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Meal Plan Details</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,35 +17,42 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
-		<h2>${loggedInUser.firstName}${loggedInUser.lastName}</h2>
-		<h3>Meal Plans</h3>
-		<form action="addMealPlan.do" method="post">
-			<label for="title">Title</label> 
-			<input type="text" name="title">
-			<br>
+		<h2>${mealPlan.title}</h2>
+		<blockquote>${mealPlan.description}</blockquote>
+		
+		<form action="addMeal.do" method="post">
+			<label for="dayOfWeek">Day of Week</label> 
+			<input type="text" name="dayOfWeek">
+				<br>
+				<input type="hidden" name ="planId" value="${mealPlan.id }">
 			<label for="description">Description</label>
 			<textarea rows="3" cols="40"></textarea>
 				<br>
-			<label for="shared">Shared</label> 
-			<input type="checkbox" name="shared">
+				
+			<label for="meal.id">Meal</label> 
+			<select name="meal.id"> 
+			<c:forEach var="meal" items="${meals}">
+				<option value="${meal.id }">${meal.name}</option>
+			</c:forEach>
+			</select>
 				<br>
-
-			<button>Add Plan</button>
+				
+			<select name="dish.id"> 
+			<c:forEach var="dish" items="${dishes}">
+				<option value="${ dish.id}">${dish.name}</option>
+			</c:forEach>
+			</select>
+				<br>
+				
+			<button>Add Meal</button>
 		</form>
 		<ul>
-			<c:forEach var="plan" items="${mealPlans}">
-				<li><a href="showPlan.do?planId=${plan.id}"> ${plan.title}</a>
+			<c:forEach var="meal" items="${mealPlan.plannedMeals}">
+				<li><a href="editMeal.do?planId=${meal.id}"> ${meal.dayOfWeek} ${meal.meal.name} ${meal.dish.name}</a>
 				</li>
-
 
 			</c:forEach>
 		</ul>
-
-
-		<a href="updateUserForm.do"><h4>Update User Account</h4></a>
-
-		<p>-Add a dish -update a dish -delete a dish -add to calendar</p>
-
 
 
 		<script

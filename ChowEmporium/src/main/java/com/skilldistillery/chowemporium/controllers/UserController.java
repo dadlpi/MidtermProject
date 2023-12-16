@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.skilldistillery.chowemporium.data.MealPlanDAO;
 import com.skilldistillery.chowemporium.data.UserDAO;
 import com.skilldistillery.chowemporium.entities.User;
 
@@ -17,28 +18,29 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
-	
+
 	@Autowired
 	private UserDAO userDao;
 	
-	
-	
-	@RequestMapping(path = {"/", "home.do"})
-	public String home() {
-		return"home";
-	}
-	
+	@Autowired
+	private MealPlanDAO mealPlanDao;
 
-	@RequestMapping(path = {"register.do"})
+	@RequestMapping(path = { "/", "home.do" })
+	public String home() {
+		return "home";
+	}
+
+	@RequestMapping(path = { "register.do" })
 	public String registerUserFormPage(Model model) {
-		
-		
+
 		return "register";
 	}
-	
-	@RequestMapping(path = {"registerUserAtDb.do"}, params = {"email","password", "firstName", "lastName"}, method = RequestMethod.POST)
-	public String registerUser(@RequestParam("email") String theEmail, @RequestParam("password") String thePassword, 
-			@RequestParam("firstName") String theFirstName, @RequestParam("lastName") String theLastName   , HttpSession session) {
+
+	@RequestMapping(path = { "registerUserAtDb.do" }, params = { "email", "password", "firstName",
+			"lastName" }, method = RequestMethod.POST)
+	public String registerUser(@RequestParam("email") String theEmail, @RequestParam("password") String thePassword,
+			@RequestParam("firstName") String theFirstName, @RequestParam("lastName") String theLastName,
+			HttpSession session) {
 		User newCreateUser = new User();
 		newCreateUser.setEnabled(true);
 		newCreateUser.setUsername(theEmail);
@@ -50,50 +52,53 @@ public class UserController {
 		newCreateUser.setDateCreated(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 		newCreateUser.setLastUpdated(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 		newCreateUser = userDao.CreateBrandNewUser(newCreateUser);
-		
+
 		session.setAttribute("loggedInUser", newCreateUser);
 		return "userHome";
 	}
 
-	@RequestMapping(path = {"navbar.do"}, method = RequestMethod.POST)
-	public String loginUser(User user, HttpSession session ) {
-		System.out.println(user+"******************");
+	@RequestMapping(path = { "navbar.do" }, method = RequestMethod.POST)
+	public String loginUser(User user, HttpSession session) {
+		System.out.println(user + "******************");
 		User validateUser = userDao.authenticateUser(user.getUsername(), user.getPassword());
 		if (validateUser == null) {
 			return "register";
-			
+
 		} else {
 			session.setAttribute("loggedInUser", validateUser);
-			return "userHome";
+			return "redirect:userHome.do";
 		}
 	}
-	
-	
-	
 
-	@RequestMapping(path = {"updateUserForm.do"}, method = RequestMethod.GET)
+	@RequestMapping(path = { "updateUserForm.do" }, method = RequestMethod.GET)
 	public String updateUserForm() {
-	return "updateUserForm";	
+		return "updateUserForm";
 	}
-	
-	
-		
 
-	@RequestMapping(path = {"updateUserAtDb.do"}, method = RequestMethod.POST)
+	@RequestMapping(path = { "userHome.do" }, method = RequestMethod.GET)
+	public String userHome(HttpSession session, Model model) {
+		User controllerUser = (User) session.getAttribute("loggedInUser");
+		if (controllerUser != null) {
+			model.addAttribute("mealPlans", mealPlanDao.findAllForUser(controllerUser.getId()));
+			return "userHome";
+		}
+		return "home";
+	}
+
+	@RequestMapping(path = { "updateUserAtDb.do" }, method = RequestMethod.POST)
 	public String updateUser(User user, HttpSession session) {
 		User controllerUser = (User) session.getAttribute("loggedInUser");
-		
-		
+
 		user.setId(controllerUser.getId());
-		
+
 		user = userDao.updateUser(user);
-			
+
 		session.setAttribute("loggedInUser", user);
 
 		return "results";
-		
+
 	}
-	
+
 	@RequestMapping(path = "logout.do")
 	public String logout(HttpSession session) {
 
@@ -101,6 +106,5 @@ public class UserController {
 
 		return "home";
 	}
-	
 
 }

@@ -20,7 +20,7 @@ public class PlannedMeal {
 	private int id;
 	
 	@Column(name= "day_of_week")
-	private int dayOfWeek;
+	private String dayOfWeek;
 	
 	private String description;
 	
@@ -50,11 +50,11 @@ public class PlannedMeal {
 		this.id = id;
 	}
 
-	public int getDayOfWeek() {
+	public String getDayOfWeek() {
 		return dayOfWeek;
 	}
 
-	public void setDayOfWeek(int dayOfWeek) {
+	public void setDayOfWeek(String dayOfWeek) {
 		this.dayOfWeek = dayOfWeek;
 	}
 

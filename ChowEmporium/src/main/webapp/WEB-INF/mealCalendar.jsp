@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +17,8 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
+		<h2>Helping you on your nutritional journey, one week at a time</h2>
+
 
 		<h2>List of Days of the Week with Meals</h2>
 
@@ -29,6 +33,7 @@
 					<td><strong>Monday</strong>
 						<ul>
 							<li>Breakfast</li>
+							<h5 class="something" id="">${dish.id}</h5>
 							<li>Lunch</li>
 							<li>Dinner</li>
 						</ul></td>
