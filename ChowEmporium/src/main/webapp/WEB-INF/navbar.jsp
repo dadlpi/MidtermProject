@@ -23,12 +23,13 @@
 			<a href="home.do" class="title">Home</a>
 
 		<c:if test="${not empty sessionScope.loggedInUser}">
-			<a href="account.do">Account</a>
-			<a href="userHome.do">User Home</a>
+			<a href="userHome.do">Go Home</a>
 			<a href="mealCalendar.do">Meal Calendar</a>
 			<a href="logout.do">LogOut</a>
 			<a href="addDishForm.do"> Add Dish</a>
 			<a href="dishesToUpdate.do"> Update Dish</a>
+			<a href="dishesToDelete.do"> Delete Dish</a>
+			
 		</c:if>
 
 		<c:if test="${empty sessionScope.loggedInUser}">
@@ -68,7 +69,6 @@
 	</nav>
 
 
-	<h1>Login PAge</h1>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

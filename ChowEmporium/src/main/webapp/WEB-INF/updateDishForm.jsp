@@ -8,6 +8,8 @@
 <title>Update Dish</title>
 </head>
 <body>
+		<%@ include file="navbar.jsp"%>
+
 	<h2>${dish.name}</h2>
 
 	<form action="updateDish.do" method="POST">

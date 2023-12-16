@@ -84,6 +84,7 @@ public class DishDaoImpl implements DishDAO {
 				
 //				TODO before persist 
 				newDish.setCreator(managedUser); 
+				newDish.setEnabled(true);
 				em.persist(newDish);
 				
 				

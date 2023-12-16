@@ -1,0 +1,503 @@
+submit buttons transform to checkmark after click
+html
+<div class="cont">	
+<button class="btn"><span>Submit</span><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62" width="62"></button>
+</div>
+
+css
+@-webkit-keyframes {
+}
+@-webkit-keyframes extend {
+    0% {
+        width: 600px;
+        height: 200px;
+        border-radius: 100px;
+        } 10% {
+        width: 610px;
+        height: 210px;
+        background: #fff;
+        margin-left: - 5px;
+        margin-top: - 5px;
+        } 20% {
+        width: 600px;
+        height: 200px;
+        background: #6fb07f;
+        margin-left: 0px;
+        margin-top: 0px;
+        } 100% {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        margin-left: 190px;
+        background: #6fb07f;
+        }
+    }
+@keyframes extend {
+    0% {
+        width: 600px;
+        height: 200px;
+        border-radius: 100px;
+        } 10% {
+        width: 610px;
+        height: 210px;
+        background: #fff;
+        margin-left: - 5px;
+        margin-top: - 5px;
+        } 20% {
+        width: 600px;
+        height: 200px;
+        background: #6fb07f;
+        margin-left: 0px;
+        margin-top: 0px;
+        } 100% {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        margin-left: 190px;
+        background: #6fb07f;
+        }
+    }
+@-webkit-keyframes {
+}
+@-webkit-keyframes disappear {
+    0% {
+        opacity: 1;
+        } 20% {
+        color: #fff;
+        } 100% {
+        opacity: 0;
+        }
+    }
+@keyframes disappear {
+    0% {
+        opacity: 1;
+        } 20% {
+        color: #fff;
+        } 100% {
+        opacity: 0;
+        }
+    }
+@-webkit-keyframes {
+}
+@-webkit-keyframes appear {
+    0% {
+        opacity: 0;
+        } 70% {
+        opacity: 0;
+        } 100% {
+        opacity: 1;
+        }
+    }
+@keyframes appear {
+    0% {
+        opacity: 0;
+        } 70% {
+        opacity: 0;
+        } 100% {
+        opacity: 1;
+        }
+    }
+html {
+    background: #fff
+    }
+
+input, button, submit {
+    border: none
+    }
+
+.cont {
+    position: absolute;
+    width: 610px;
+    height: 10px;
+    left: 50%;
+    top: 50%;
+    margin: -100px 0 0 -300px
+    }
+
+button {
+    border-width: 1px;
+    width: 600px;
+    height: 200px;
+    /*border-radius*/
+    border-radius: 100px;
+    background: #fff;
+    position: absolute;
+    border: 5px solid #6fb07f
+    }
+
+button > span {
+    font-size: 48px;
+    color: #6fb07f
+    }
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0
+    }
+
+button:focus {
+    /*animation*/
+    -webkit-animation: extend 1s ease-in-out;
+    -ms-animation: extend 1s ease-in-out;
+    animation: extend 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards
+    }
+
+button:focus > span {
+    /*animation*/
+    -webkit-animation: disappear 1s ease-in-out;
+    -ms-animation: disappear 1s ease-in-out;
+    animation: disappear 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards
+    }
+
+button:focus > img {
+    /*animation*/
+    -webkit-animation: appear 1s ease-in-out;
+    -ms-animation: appear 1s ease-in-out;
+    animation: appear 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards
+    }
+
+    ---------------------------------------------------------------------------------------
+
+
+    Dropdown login button
+
+    <div class="dropdown">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+    Dropdown form
+  </button>
+  <form class="dropdown-menu p-4">
+    <div class="mb-3">
+      <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+    </div>
+    <div class="mb-3">
+      <label for="exampleDropdownFormFirstName2" class="form-label">First Name</label>
+      <input type="firstname" class="form-control" id="exampleDropdownFormFirstName2" placeholder="First Name">
+    </div>
+    <div class="mb-3">
+      <label for="exampleDropdownFormLastName2" class="form-label">Last Name</label>
+      <input type="lastname" class="form-control" id="exampleDropdownFormLastName2" placeholder="Last Name">
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+        <label class="form-check-label" for="dropdownCheck2">
+          Remember me
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+</div>
+
+
+-------------------------------------------------------------------------------------------
+
+
+Regular drop down button with href
+
+<div class="btn-group">
+  <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Action
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+
+-------------------------------------------------------------------------------------------
+
+Nav bar menu with drop down from button
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+-------------------------------------------------------------------------------------------
+
+Input options for meals
+
+<form>
+  <div class="row mb-3">
+    <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="name" class="form-control" id="inputName3">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="inputdescription3" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <input type="description" class="form-control" id="inputDescription3">
+    </div>
+  </div>
+
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">Meal Type</legend>
+    <div class="col-sm-10">
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+        <label class="form-check-label" for="gridRadios1">
+          Breakfast
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          Lunch
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+        <label class="form-check-label" for="gridRadios3">
+          Dinner
+        </label>
+      </div>
+
+    </div>
+  </fieldset>
+
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">Cuisine</legend>
+
+  <div class="row mb-3">
+    <div class="col-sm-10 offset-sm-2">
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine1" value="Mexican">
+        <label class="form-check-label" for="cuisine1">
+        Mexican
+        </label>
+      </div>
+
+       <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine2" value="American">
+        <label class="form-check-label" for="cuisine2">
+          American
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine3" value="Italian">
+        <label class="form-check-label" for="cuisine3">
+          Italian
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine4" value="Mediterranean">
+        <label class="form-check-label" for="cuisine4">
+          Mediterranean
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine5" value="Japanese">
+        <label class="form-check-label" for="cuisine5">
+          Japanese
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine6" value="Korean">
+        <label class="form-check-label" for="cuisine6">
+          Korean
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine7" value="Greek">
+        <label class="form-check-label" for="cuisine7">
+          Greek
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine8" value="Indian">
+        <label class="form-check-label" for="cuisine8">
+          Indian
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine9" value="Carribean">
+        <label class="form-check-label" for="cuisine9">
+          Carribean
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine10" value="Scandinavian">
+        <label class="form-check-label" for="cuisine10">
+          Scandinavian
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine11" value="Thai">
+        <label class="form-check-label" for="cuisine11">
+          Thai
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine12" value="Brazilian">
+        <label class="form-check-label" for="cuisine12">
+          Brazilian
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine13" value="Chinese">
+        <label class="form-check-label" for="cuisine13">
+          Chinese
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine14" value="Mongolian">
+        <label class="form-check-label" for="cuisine14">
+          Mongolian
+        </label>
+      </div>
+
+
+       <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="cuisine15" value="Lebanese">
+        <label class="form-check-label" for="cuisine15">
+          Lebanese
+        </label>
+      </div>
+
+    </div>
+    </fieldset>
+
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">Diet Category</legend>
+
+  <div class="row mb-3">
+    <div class="col-sm-10 offset-sm-2">
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dietCategory1" value="Keto">
+        <label class="form-check-label" for="dietCategory1">
+        Keto
+        </label>
+      </div>
+
+       <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dietCategory2" value="Vegan">
+        <label class="form-check-label" for="dietCategory2">
+          Vegan
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dietCategory3" value="Carnivore">
+        <label class="form-check-label" for="dietCategory3">
+          Carnivore
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dietCategory4" value="Vegetarian">
+        <label class="form-check-label" for="dietCategory4">
+          Vegetarian
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dietCategory5" value="Japanese">
+        <label class="form-check-label" for="cuisine5">
+          Japanese
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dietCategory6" value="Korean">
+        <label class="form-check-label" for="cuisine6">
+          Korean
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dietCategory7" value="Greek">
+        <label class="form-check-label" for="cuisine7">
+          Greek
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dietCategory8" value="Indian">
+        <label class="form-check-label" for="cuisine8">
+          Indian
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dietCategory9" value="Carribean">
+        <label class="form-check-label" for="cuisine9">
+          Carribean
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dietCategory10" value="Scandinavian">
+        <label class="form-check-label" for="cuisine10">
+          Scandinavian
+        </label>
+      </div>
+
+    </div>
+    </fieldset>
+
+  </div>
+  <button type="submit" class="btn btn-primary">Add Meal</button>
+</form>

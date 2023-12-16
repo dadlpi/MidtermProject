@@ -59,15 +59,15 @@ public class DishController {
 		Dish newlyAddedDish = dishDao.createBrandNewDish(loggedInUser.getId(), dish,
 				categoryDao.getCuisines(selectedCuisines), categoryDao.getDietCategory(selectedCategories),
 				categoryDao.getDietaryRestrictions(selectedRestrictions));
-
+		refreshSesh(session);
 		return "results";
 	}
 
 	@RequestMapping(path = { "updateDishForm.do" }, method = RequestMethod.GET)
-	public String updateDishForm(@RequestParam("dishId") int dishId, Model model) {
+	public String updateDishForm(@RequestParam("dishId") int dishId, Model model, HttpSession session) {
 
 		model.addAttribute("dish", dishDao.findById(dishId));
-
+		refreshSesh(session);
 		return "updateDishForm";
 	}
 
@@ -93,4 +93,34 @@ public class DishController {
 		return "updateDish";
 	}
 
+	@RequestMapping(path = { "deleteDishForm.do" }, method = RequestMethod.GET)
+	public String deleteDishForm(@RequestParam("dishId") int dishId, Model model) {
+		
+		model.addAttribute("dish", dishDao.findById(dishId));
+
+		return "deleteDishForm";
+	}
+	
+	@RequestMapping(path = { "deleteDish.do" }, method = RequestMethod.POST)
+	public String deleteDish(Dish dish, HttpSession session) {
+
+		dishDao.deleteDish(dish);
+		refreshSesh(session);
+
+		return "results";
+	}
+	
+
+	@RequestMapping(path = { "dishesToDelete.do" }, method = RequestMethod.GET)
+	public String dishesToBeRemoved() {
+
+		return "deleteDish";
+	}
+	
+	@RequestMapping(path = { "mealCalendar.do" }, method = RequestMethod.GET)
+	public String mealCalendar() {
+
+		return "mealCalendar";
+	}
+	
 }

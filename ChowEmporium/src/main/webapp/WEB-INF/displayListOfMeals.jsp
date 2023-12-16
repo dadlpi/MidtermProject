@@ -16,7 +16,7 @@
 	<div class="container">
 		<%@ include file="navbar.jsp"%>
 
-		<h1>Hello List of Meals</h1>
+		<h1>List of Meals</h1>
 
 
 		<div>
