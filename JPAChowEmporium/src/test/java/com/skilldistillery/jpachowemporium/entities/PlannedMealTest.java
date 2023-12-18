@@ -51,7 +51,7 @@ class PlannedMealTest {
 	@Test
 	void test() {
 		assertNotNull(plannedMeal);
-		assertEquals(plannedMeal.getDayOfWeek(), 1);
+		assertEquals(plannedMeal.getDayOfWeek(), "1");
 		
 	}
 	@Test
