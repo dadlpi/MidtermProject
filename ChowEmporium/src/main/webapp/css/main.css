@@ -48,15 +48,31 @@ body {
 	
 	
 .navbar .dropdown{
-	background: transparent;
-  color: blue;
-  border: 1px solid blue;
-  font-size: 12px;
-  padding: 8px;
-	
+  position: relative;
+  padding: 1px;
+  border: 1px solid rgb(239, 87, 87);
+  border-radius: 10px;
+  left: auto;
+  top: 10px;
+  
+  height: 18rem;
+  width: 15rem;
+  margin-right: 10%;
+  background-color: darkslategrey;
 	
 	
 
+}
+
+title{
+	color: #f8f8f8;
+}
+.title{
+	color: #f8f8f8;
+}
+.welcomesign{
+	color: #f8f8f8;
+	
 }
 
 
@@ -64,3 +80,153 @@ body {
 	
 	
 }
+
+/* START OF CSS */
+
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to { 
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to { 
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-moz-keyframes move-background {    
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to { 
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+    @-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to { 
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+.notification{
+  margin-top: 100px;
+  position: absolute;
+  font-family: fantasy;
+  color: #f8f8f8;
+  top: 50px;
+  font-size: smaller;
+}
+
+.background-container{
+  position: fixed;
+  top: 0;
+  left:0;
+  bottom: 0;
+  right: 0;
+  z-index: -3;
+}
+
+.stars {
+  z-index: -3;
+
+ background: rgb(0, 0, 0) url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+ position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+}
+
+.twinkling{
+  z-index: -3;
+
+  width:10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+  background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    
+    -moz-animation:move-background 70s linear infinite;
+  -ms-animation:move-background 70s linear infinite;
+  -o-animation:move-background 70s linear infinite;
+  -webkit-animation:move-background 70s linear infinite;
+  animation:move-background 70s linear infinite;
+  
+}
+
+.clouds{
+  z-index: 0;
+
+  width:10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+  background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+   
+
+   -moz-animation:move-background 150s linear infinite;
+  -ms-animation:move-background 150s linear infinite;
+  -o-animation:move-background 150s linear infinite;
+  -webkit-animation:move-background 150s linear infinite;
+  animation:move-background 150s linear infinite;
+}
+img{
+  z-index: -2;
+
+
+ 
+ 
+}
+.pizzamoon{
+	
+	
+	 z-index: -1;
+
+  height: 70vh;
+  width:70vh;
+  position: absolute;
+  right: 20px;
+	
+	
+	-webkit-animation:spin 20s linear infinite;
+    -moz-animation:spin 20s linear infinite;
+    animation:spin 20s linear infinite;
+}
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+	
+	
+}
+
+
+/*END OF MOON */
+
+
+
+

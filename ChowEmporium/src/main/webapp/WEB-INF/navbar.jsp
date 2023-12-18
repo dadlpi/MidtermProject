@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" %>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
 <html>
@@ -17,52 +17,46 @@
 
 
 	<nav class="navbar">
-	<h1 class="title">Chow Emporium</h1>
-		<a href="displaySingularMeal.do" class="title">Display Singular Meal</a> <a
-			href="displayListOfMeals.do" class="title">Display List of Meals</a>
-			<a href="home.do" class="title">Home</a>
+		<h1 class="title">Chow Emporium</h1>
+		<img src="img/download.png" alt="" width="45" height="45"> <a
+			href="displaySingularMeal.do" class="title">Display Singular Meal</a>
+		<a href="displayListOfMeals.do" class="title">Display List of
+			Meals</a> <a href="home.do" class="title">Home</a>
 
 		<c:if test="${not empty sessionScope.loggedInUser}">
 			<a href="userHome.do">Go Home</a>
-			<a href="mealCalendar.do">Meal Calendar</a>
+			
 			<a href="logout.do">LogOut</a>
-			<a href="addDishForm.do"> Add Dish</a>
-			<a href="dishesToUpdate.do"> Update Dish</a>
-			<a href="dishesToDelete.do"> Delete Dish</a>
 			
 		</c:if>
 
 		<c:if test="${empty sessionScope.loggedInUser}">
-		
-				<div class="dropdown">
-					<button type="button" class="btn btn-primary dropdown-toggle"
-						data-bs-toggle="dropdown" aria-expanded="false"
-						data-bs-auto-close="true">Login</button>
-			
+
+			<div class="dropdown">
+				
+
+				<form action="navbar.do" method="POST" class="p-4">
+					<div class="mb-3">
+						<label for="username" class="form-label">Username</label> <input
+							type="text" class="form-control" name="username"
+							placeholder="Username">
+
+					</div>
+
+					<div class="mb-3">
+						<label for="exampleDropdownFormPassword2" class="form-label">Password</label>
+						<input type="password" name="password" class="form-control"
+							placeholder="Password">
+
+					</div>
+					<input type="submit" class="btn btn-primary" value="Sign in"></input>
+					<br>
+				<a href="register.do">Register</a>
+				</form>
 
 
 
 
-			<form action="navbar.do" method="POST" class="p-4">
-				<div class="mb-3">
-					<label for="username" class="form-label">Username</label> <input
-						type="text" class="form-control" name="username" placeholder="Username">
-						
-				</div>
-
-				<div class="mb-3">
-					<label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-					<input type="password" name="password" class="form-control"
-						placeholder="Password">
-
-				</div>
-				<input type="submit" class="btn btn-primary" value = "Sign in"></input> 
-			</form>
-			
-
-
-			<a href="register.do">Register</a>
-			
 			</div>
 		</c:if>
 

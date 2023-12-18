@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Home</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,7 +17,15 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
-		<h2>${loggedInUser.firstName}${loggedInUser.lastName}</h2>
+		<h2>${loggedInUser.firstName} ${loggedInUser.lastName}</h2>
+			<a href="addDishForm.do"> Add Dish</a>
+			<br>
+			<a href="dishesToUpdate.do"> Update Dish</a>
+			<br>
+			<a href="dishesToDelete.do"> Delete Dish</a>
+		<hr>
+		
+		
 		<h3>Meal Plans</h3>
 		<form action="addMealPlan.do" method="post">
 			<label for="title">Title</label> 
