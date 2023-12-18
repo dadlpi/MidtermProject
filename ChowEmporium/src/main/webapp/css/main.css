@@ -2,11 +2,18 @@
 
 body {
 	background-color: lightcyan;
+	
 }
+
+
+div{
+	color: #f8f8f8;
+}
+
 
 .title {
 	margin-top: 0rem;
-	text-decoration: none;
+	text-decoration: underline;
 	padding: 1rem;
 	
 	}
@@ -21,7 +28,7 @@ body {
 	padding: 1rem;
 	display: flex;
 	align-items: center;
-	text-decoration: none;
+	text-decoration: underline;
 	
 }
 
@@ -196,7 +203,7 @@ img{
 }
 .pizzamoon{
 	
-	
+	filter: brightness(75%);
 	 z-index: -1;
 
   height: 70vh;

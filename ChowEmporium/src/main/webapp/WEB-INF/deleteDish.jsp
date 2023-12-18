@@ -6,9 +6,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here....or else</title>
+<title>Dish Delete</title>
+<link rel = "icon" type = "image/x-icon" href ="img/download.ico">
 </head>
 <body>
+<div class="background-container">
+		<img class = "pizzamoon"
+			src="img/download.png"
+			alt=""> 
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<div class="clouds"></div>
+	</div>
+
 		<%@ include file="navbar.jsp"%>
 
 	<h5>${loggedInUser.firstName}${loggedInUser.lastName}</h5>

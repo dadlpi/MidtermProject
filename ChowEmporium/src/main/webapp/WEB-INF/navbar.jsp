@@ -24,42 +24,13 @@
 			Meals</a> <a href="home.do" class="title">Home</a>
 
 		<c:if test="${not empty sessionScope.loggedInUser}">
-			<a href="userHome.do">Go Home</a>
+			<a href="userHome.do" class="title">Account Home</a>
 			
-			<a href="logout.do">LogOut</a>
+			<a href="logout.do" class="title">Log out</a>
 			
 		</c:if>
 
-		<c:if test="${empty sessionScope.loggedInUser}">
-
-			<div class="dropdown">
-				
-
-				<form action="navbar.do" method="POST" class="p-4">
-					<div class="mb-3">
-						<label for="username" class="form-label">Username</label> <input
-							type="text" class="form-control" name="username"
-							placeholder="Username">
-
-					</div>
-
-					<div class="mb-3">
-						<label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-						<input type="password" name="password" class="form-control"
-							placeholder="Password">
-
-					</div>
-					<input type="submit" class="btn btn-primary" value="Sign in"></input>
-					<br>
-				<a href="register.do">Register</a>
-				</form>
-
-
-
-
-			</div>
-		</c:if>
-
+		
 	</nav>
 
 

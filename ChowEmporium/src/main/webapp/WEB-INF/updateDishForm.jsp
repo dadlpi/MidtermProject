@@ -6,8 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Update Dish</title>
+<link rel = "icon" type = "image/x-icon" href ="img/download.ico">
 </head>
 <body>
+<div class="background-container">
+		<img class = "pizzamoon"
+			src="img/download.png"
+			alt=""> 
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<div class="clouds"></div>
+	</div>
+
 		<%@ include file="navbar.jsp"%>
 
 	<h2>${dish.name}</h2>
