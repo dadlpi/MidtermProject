@@ -7,8 +7,18 @@
 <link rel="stylesheet" href="css/main.css">
 <meta charset="UTF-8">
 <title>Update User Form</title>
+<link rel = "icon" type = "image/x-icon" href ="img/download.ico">
 </head>
 <body>
+<div class="background-container">
+		<img class = "pizzamoon"
+			src="img/download.png"
+			alt=""> 
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<div class="clouds"></div>
+	</div>
+
 
 <h1>Update User form for ${loggedInUser.firstName} ${loggedInUser.lastName}</h1>
 

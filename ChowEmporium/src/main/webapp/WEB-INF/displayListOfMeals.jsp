@@ -11,8 +11,18 @@
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/main.css">
+<link rel = "icon" type = "image/x-icon" href ="img/download.ico">
 </head>
 <body>
+<div class="background-container">
+		<img class = "pizzamoon"
+			src="img/download.png"
+			alt=""> 
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<div class="clouds"></div>
+	</div>
+
 	<div class="container">
 		<%@ include file="navbar.jsp"%>
 
@@ -22,17 +32,26 @@
 		<div>
 			<c:choose>
 				<c:when test="${! empty dishes}">
-					<ul>
+					
 						<c:forEach var="dish" items="${dishes}">
-							<h5>${dish.name}</h5>
+							
 							
 							<br>
-							<a href = "${dish.recipeUrl}">${dish.name}</h5></a>
+							<h3>${dish.name}</h3>
+							<img alt="Dish" src="${dish.imageUrl }" width = "250 " height = "250">
+							<ul>
+							<li><a href = "${dish.recipeUrl}">Link to Recipe</a></li>
+							<li>calories: ${dish.calories }</li>
+							<li>Carbs: ${dish.carbsGrams }</li>
+							<li>Fat: ${dish.fatGrams }</li>
+							<li>Protein: ${dish.proteinGrams }</li>
+							<li>Restrictions: ${dish.dietaryRestrictions }</li>
+							</ul>
 								<hr>
 						<br>
 						<br>
 					</c:forEach>
-				</ul>
+				
 			</c:when>
 		</c:choose>
 	</div>

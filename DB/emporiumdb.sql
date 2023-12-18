@@ -407,7 +407,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `emporiumdb`;
-INSERT INTO `user` (`id`, `enabled`, `username`, `role`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `date_created`, `last_update`, `profile_image_url`, `about_me`) VALUES (1, 1, 'joeadmin', NULL, 'admin', 'Joe', 'Admin', NULL, NULL, '2020-05-15 15:20:36', '2020-05-15 15:20:36', NULL, NULL);
+INSERT INTO `user` (`id`, `enabled`, `username`, `role`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `date_created`, `last_update`, `profile_image_url`, `about_me`) VALUES (1, 1, 'joeadmin', NULL, 'admin', 'Joe', 'Admin', NULL, NULL, '2020-05-15 15:20:36', '2020-05-15 15:20:36', 'https://i.etsystatic.com/7545759/r/il/956ab5/4065875320/il_1080xN.4065875320_dfjm.jpg', 'I Love food that makes me suffer.');
 
 COMMIT;
 
@@ -429,7 +429,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `emporiumdb`;
-INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (1, 'Easy Butter Chicken', 'Super tasty dish with an amazing flavor. ', 430, 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fs3.amazonaws.com%2Fvideo-api-prod%2Fassets%2F6e6a56c27c68410991ce7d4e4acc7dee%2FBFV8692_Easy_Butter_Chicken_Thumb.jpg&tbnid=WEtK6AIBte2kTM&vet=12ahUKEwj0_f3eqYiDAxXpOkQIHQ7CCJsQMygBegQIARBP..i&imgrefurl=https%3A%2F%2Ftasty.co%2Frecipe%2Feasy-butter-chicken&docid=-S8rv04_knEP3M&w=1080&h=1080&q=easy%20butter%20chicken%20carbs&ved=2ahUKEwj0_f3eqYiDAxXpOkQIHQ7CCJsQMygBegQIARBP', 30, 28, 14, 1, 'https://tasty.co/recipe/easy-butter-chicken', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
+INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (1, 'Easy Butter Chicken', 'Super tasty dish with an amazing flavor. ', 430, 'https://foodal.com/wp-content/uploads/2021/04/Easy-Butter-Chicken-Recipe.jpg', 30, 28, 14, 1, 'https://tasty.co/recipe/easy-butter-chicken', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
 INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (2, 'Veggie Garlic Noodles', 'Its good if you like veggies', 365, 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/tips/67a4489f9c30452999e10176b7a09e23.jpeg?downsize=800:*&output-format=auto&output-quality=auto', 7, 7, 66, 1, 'https://tasty.co/recipe/veggie-garlic-noodles', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
 INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (3, 'Sheet Pan Quesadilla with Jalapeño Ranch', 'Spicy but yum yum yum deliciouso', 542, 'https://images.themodernproper.com/billowy-turkey/production/posts/2020/sheetpan-quesadilla-9.jpg?w=800&q=82&fm=jpg&fit=crop&dm=1603458592&s=512107d73984dfb25b200d1521e95934', 13, 34, 48, 1, 'https://themodernproper.com/sheet-pan-quesadilla-with-jalapeno-ranch', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
 INSERT INTO `dish` (`id`, `name`, `description`, `calories`, `image_url`, `protein_grams`, `fat_grams`, `carbs_grams`, `user_id`, `recipe_url`, `meal_type_id`, `date_created`, `last_update`, `enabled`) VALUES (4, 'Swedish Meatballs (Svenska Kottbullar)', 'A Nordic master piece  ', 309, 'https://www.allrecipes.com/thmb/2ndh4FTc4_n0i0aLhjTiB7MCFkE=/160x90/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/216564-swedish-meatballs-svenska-kottbullar-DDMFS-4x3-2cfaeac162c9485dbd7d632fd0b6ef0a.jpg', 17, 21, 12, 1, 'https://allrecipes.com/recipe/216564/swedish-meatballs-svenska-kottbullar/', 1, '2020-09-02 13:23:12', '2020-09-02 13:23:12', 1);
@@ -506,17 +506,6 @@ INSERT INTO `diet_category` (`id`, `name`) VALUES (6, 'Halal');
 INSERT INTO `diet_category` (`id`, `name`) VALUES (7, 'Fruitarianism');
 INSERT INTO `diet_category` (`id`, `name`) VALUES (8, 'Paleolithic');
 INSERT INTO `diet_category` (`id`, `name`) VALUES (9, 'Pescatarian');
-INSERT INTO `diet_category` (`id`, `name`) VALUES (10, 'None');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `dish_diet_category`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `emporiumdb`;
-INSERT INTO `dish_diet_category` (`dish_id`, `diet_category_id`) VALUES (1, 10);
 
 COMMIT;
 

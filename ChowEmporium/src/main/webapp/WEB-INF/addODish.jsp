@@ -12,8 +12,18 @@
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/main.css">
+<link rel = "icon" type = "image/x-icon" href ="img/download.ico">
 </head>
 <body>
+<div class="background-container">
+		<img class = "pizzamoon"
+			src="img/download.png"
+			alt=""> 
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<div class="clouds"></div>
+	</div>
+
 	<div class="container">
 
 
@@ -69,9 +79,15 @@
 			</div>
 
 			<div class="row mb-3">
-				<label for="inputdescription3" class="col-sm-2 col-form-label">URL</label>
+				<label for="inputdescription3" class="col-sm-2 col-form-label"> Recipe URL</label>
 				<div class="col-sm-10">
 					<input type="text" name="recipeUrl" class="form-control" id="inputDescription3">
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label for="inputdescription3" class="col-sm-2 col-form-label"> Image URL</label>
+				<div class="col-sm-10">
+					<input type="text" name="imageUrl" class="form-control" id="inputDescription3">
 				</div>
 			</div>
 

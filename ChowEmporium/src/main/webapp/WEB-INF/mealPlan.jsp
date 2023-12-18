@@ -15,6 +15,15 @@
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<div class="background-container">
+		<img class = "pizzamoon"
+			src="img/download.png"
+			alt=""> 
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<div class="clouds"></div>
+	</div>
+
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
 		<h2>${mealPlan.title}</h2>
