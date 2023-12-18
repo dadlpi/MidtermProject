@@ -15,7 +15,21 @@
 
 <h1>Singluar Meal</h1>
 
-
+	<div>
+			<c:choose>
+				<c:when test="${! empty singluarDish}">
+			
+						
+							<h5>${singluarDish.name}</h5>
+							
+							<br>
+							<a href = "${singluarDish.recipeUrl}">${singluarDish.name}</a>
+								<hr>
+						<br>
+		
+			</c:when>
+		</c:choose>
+	</div>
 
 
 

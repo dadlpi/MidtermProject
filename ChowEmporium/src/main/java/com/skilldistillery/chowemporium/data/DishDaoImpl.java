@@ -96,6 +96,28 @@ public class DishDaoImpl implements DishDAO {
 			
 			return em.find(Dish.class, dishId);
 		}
+		
+		
+		
+		public Dish getRandomDish(int maxCeiling, int minFloor){
+			Dish oneReturnedRandomDish = null;
+				
+			for (int i = 0; i < maxCeiling ; i++) {
+						int rand = (int)(Math.random() * (maxCeiling - minFloor) + minFloor);
+						oneReturnedRandomDish = findById(rand);
+
+					if (oneReturnedRandomDish == null) {
+						continue;
+					} else {
+					break;
+					}
+					
+				}
+			
+				return oneReturnedRandomDish;
+					
+					
+			}
 
 }
 
