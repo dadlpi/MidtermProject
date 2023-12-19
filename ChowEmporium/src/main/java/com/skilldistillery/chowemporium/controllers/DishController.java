@@ -97,8 +97,8 @@ public class DishController {
 
 	@RequestMapping(path = { "deleteDishForm.do" }, method = RequestMethod.GET)
 	public String deleteDishForm(@RequestParam("dishId") int dishId, Model model, HttpSession session) {
-		refreshSesh(session);
 		model.addAttribute("dish", dishDao.findById(dishId));
+		refreshSesh(session);
 
 		return "deleteDishForm";
 	}
@@ -114,8 +114,8 @@ public class DishController {
 	
 
 	@RequestMapping(path = { "dishesToDelete.do" }, method = RequestMethod.GET)
-	public String dishesToBeRemoved() {
-
+	public String dishesToBeRemoved(HttpSession session) {
+		refreshSesh(session);
 		return "deleteDish";
 	}
 	
