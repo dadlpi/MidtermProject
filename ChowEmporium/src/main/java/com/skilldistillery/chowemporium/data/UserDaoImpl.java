@@ -27,7 +27,9 @@ public class UserDaoImpl implements UserDAO {
 			user = em.createQuery(jpql, User.class).setParameter("un", username).setParameter("pw", password)
 					.getSingleResult();
 			user.getUserCreatedDishes().size();
+			user.getFavoriteDishList().size();
 
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println("Invalid user:" + username);
@@ -84,9 +86,12 @@ public class UserDaoImpl implements UserDAO {
 
 	@Override
 	public User findUser(int userId) {
-		
+		User user = em.find(User.class, userId);
+		user.getUserCreatedDishes().size();
+		user.getFavoriteDishList().size();
 
-		return em.find(User.class, userId);
+
+		return user;
 		
 	}
 

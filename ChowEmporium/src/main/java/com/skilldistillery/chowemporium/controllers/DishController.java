@@ -31,7 +31,7 @@ public class DishController {
 
 	@RequestMapping(path = { "displaySingularMeal.do" })
 	public String displaySingularMeal(Model model) {
-		Dish dish = dishDao.getRandomDish(1, 7);
+		Dish dish = dishDao.getRandomDish(1, 5);
 		model.addAttribute("singularDish", dish);
 		
 		return "displaySingularMeal";

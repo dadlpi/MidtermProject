@@ -14,4 +14,5 @@ public interface DishDAO {
 	List<Dish> findAll();
 	Dish findById(int dishId);
 	Dish getRandomDish(int maxCeiling, int minFloor);
+	
 }

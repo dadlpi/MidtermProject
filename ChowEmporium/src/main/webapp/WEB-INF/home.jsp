@@ -94,39 +94,34 @@
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<img
-							src="https://www.allrecipes.com/thmb/3TdYlX5FWX_oevSs2hSTr_but9k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/811142-56b25d3b3c72477cb7be869d2de756e5.jpg"
+							src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 							class="d-block w-100" alt="..." width="350" height="350">
 					</div>
-					<div class="carousel-item">
-						<img
-							src="https://www.allrecipes.com/thmb/X1g8lsOvJfIhlfphnHtZuLmoMSA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11880-Easy-Beef-Stroganoff-6c767ce2600941e1b9f274ede51d6067.jpg"
-							class="d-block w-100" alt="..." width="350" height="350">
-					</div>
-					<div class="carousel-item">
-						<img
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsS6lG9846rN13B4EEkCJhTbs2nPjPYCMBeg&usqp=CAU"
-							class="d-block w-100" alt="..." width="350" height="350">
-					</div>
+					<c:if test="${! empty loggedInUser.favoriteDishList}">
+
+						<c:forEach var="dish" items="${loggedInUser.favoriteDishList}">
+							<div class="carousel-item ">
+								<a href="${dish.recipeUrl}"><img src="${dish.imageUrl}"
+									class="d-block w-100" alt="..." width="350" height="350"></a>
+							</div>
+						</c:forEach>
+					</c:if>
+					<button class="carousel-control-prev" type="button"
+						data-bs-target="#carouselExample" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button"
+						data-bs-target="#carouselExample" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
 				</div>
-				<button class="carousel-control-prev" type="button"
-					data-bs-target="#carouselExample" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button"
-					data-bs-target="#carouselExample" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
-			</div>
-			<br>
-
-			<p>Click on any meal to start your mouth watering journey</p>
-
-
-
-
 		</c:if>
+		<br>
+
+		<p>Click on any meal to start your mouth watering journey</p>
+
 
 
 
