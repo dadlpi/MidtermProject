@@ -18,17 +18,21 @@
 
 	<nav class="navbar">
 		<h1 class="title">Chow Emporium</h1>
-		<img src="img/download.png" alt="" width="45" height="45"> <a
-			href="displaySingularMeal.do" class="title">Display Singular Meal</a>
-		<a href="displayListOfMeals.do" class="title">Display List of
-			Meals</a> <a href="home.do" class="title">Home</a>
-
+		<img src="img/download.png" alt="" width="45" height="45">
+		<a href="home.do" class="title">Home</a>
 		<c:if test="${not empty sessionScope.loggedInUser}">
 			<a href="userHome.do" class="title">Account Home</a>
 			
 			<a href="logout.do" class="title">Log out</a>
 			
 		</c:if>
+		
+		 <a href="displaySingularMeal.do" class="title">Display Singular Meal</a>
+		 
+		<a href="displayListOfMeals.do" class="title">Display List of Meals</a>
+			
+			
+
 
 		
 	</nav>
