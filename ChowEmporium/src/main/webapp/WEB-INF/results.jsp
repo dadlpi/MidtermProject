@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Results Page</title>
 <link rel = "icon" type = "image/x-icon" href ="img/download.ico">
+<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <div class="background-container">
@@ -21,19 +22,19 @@
 	<%@ include file="navbar.jsp"%>
 
 
-	<h1>
+	<h1 class="title">
 		<strong>Results Page</strong>
 	</h1>
 
-	<h3>Logged in user = ${loggedInUser.firstName}
+	<h3 class="title">Logged in user = ${loggedInUser.firstName}
 		${loggedInUser.lastName}</h3>
 
 	<c:if test="${not empty loggedInUser.userCreatedDishes}">
-		<h2>you changed: ${dish.name}</h2>
+		<h2 class="title">you changed: ${dish.name}</h2>
 	</c:if>
 
 	<c:if test="${empty loggedInUser.userCreatedDishes}">
-		<h2>You have removed: ${dish.name}</h2>
+		<h2 class="title">You have removed: ${dish.name}</h2>
 	</c:if>
 
 <%-- 	<div id=“container”>

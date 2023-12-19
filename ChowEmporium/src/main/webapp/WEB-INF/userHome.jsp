@@ -28,9 +28,11 @@
 		<img alt="profileImage" src="${loggedInUser.profileImage}" width="150 "
 			height="150">
 		<h2>${loggedInUser.firstName} ${loggedInUser.lastName}</h2>
-		<a href="addDishForm.do" class="title"> Add Dish</a> <br> <a
-			href="dishesToUpdate.do" class="title"> Update Dish</a> <br> <a
-			href="dishesToDelete.do" class="title"> Delete Dish</a>
+		<a href="addDishForm.do" class="title"> Add Dish</a> 
+		<br> 
+		<a href="dishesToUpdate.do" class="title"> Update Dish</a> 
+		<br> 
+		<a href="dishesToDelete.do" class="title"> Delete Dish</a>
 		<hr>
 
 

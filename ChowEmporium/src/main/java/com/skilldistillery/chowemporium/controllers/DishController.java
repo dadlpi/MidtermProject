@@ -90,14 +90,14 @@ public class DishController {
 	}
 
 	@RequestMapping(path = { "dishesToUpdate.do" }, method = RequestMethod.GET)
-	public String dishesToBechanged() {
-
+	public String dishesToBechanged(HttpSession session) {
+		refreshSesh(session);  //FUNKY DEFECT - we resolved with this refresh
 		return "updateDish";
 	}
 
 	@RequestMapping(path = { "deleteDishForm.do" }, method = RequestMethod.GET)
-	public String deleteDishForm(@RequestParam("dishId") int dishId, Model model) {
-		
+	public String deleteDishForm(@RequestParam("dishId") int dishId, Model model, HttpSession session) {
+		refreshSesh(session);
 		model.addAttribute("dish", dishDao.findById(dishId));
 
 		return "deleteDishForm";

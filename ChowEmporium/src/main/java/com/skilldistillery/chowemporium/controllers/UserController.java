@@ -78,6 +78,7 @@ public class UserController {
 	@RequestMapping(path = { "userHome.do" }, method = RequestMethod.GET)
 	public String userHome(HttpSession session, Model model) {
 		User controllerUser = (User) session.getAttribute("loggedInUser");
+		refreshSesh(session);
 		if (controllerUser != null) {
 			model.addAttribute("mealPlans", mealPlanDao.findAllForUser(controllerUser.getId()));
 			return "userHome";
@@ -105,6 +106,13 @@ public class UserController {
 		session.removeAttribute("loggedInUser");
 
 		return "home";
+	}
+	
+	public void refreshSesh(HttpSession session) {
+		User user = (User) session.getAttribute("loggedInUser");
+
+		session.setAttribute("loggedInUser", userDao.findUser(user.getId()));
+
 	}
 
 }

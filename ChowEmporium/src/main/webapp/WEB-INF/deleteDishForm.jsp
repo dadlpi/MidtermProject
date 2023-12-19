@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Are You Sure</title>
 <link rel = "icon" type = "image/x-icon" href ="img/download.ico">
+<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <div class="background-container">
@@ -19,12 +20,12 @@
 
 		<%@ include file="navbar.jsp"%>
 
-	<h2>${dish.name}</h2>
+	<h2 class="title">${dish.name}</h2>
 
 	<form action="deleteDish.do" method="POST">
 
 		<input type="hidden" name="id" value="${dish.id }"> 
-		Are You Sure You Want To Delete?!
+		<h2 class="title">Are You Sure You Want To Delete?!</h2>
 		<input type="submit" value="Submit " />
 	</form>
 
