@@ -177,7 +177,7 @@
 					</div>
 				</div>
 			</fieldset>
-			<button type="submit" class="btn btn-primary">Add Meal</button>
+			<button class ="btn btn-success" id="submitButtons">Add Meal</button>
 		</form>
 
 

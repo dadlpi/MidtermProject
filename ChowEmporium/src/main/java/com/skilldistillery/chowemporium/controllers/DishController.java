@@ -74,9 +74,10 @@ public class DishController {
 	}
 
 	@RequestMapping(path = { "updateDish.do" }, method = RequestMethod.POST)
-	public String updateDish(Dish dish, HttpSession session) {
+	public String updateDish(Dish dish, HttpSession session, Model model) {
 
-		dishDao.updateDish(dish);
+		model.addAttribute("dish",dishDao.updateDish(dish) );
+		
 		refreshSesh(session);
 
 		return "results";

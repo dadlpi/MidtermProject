@@ -13,7 +13,7 @@
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/main.css">
-<link rel = "icon" type = "image/x-icon" href ="img/download.ico">
+<link rel="icon" type="image/x-icon" href="img/download.ico">
 </head>
 <body>
 	<div class="background-container">
@@ -25,14 +25,18 @@
 
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
-		<img alt="profileImage" src="${loggedInUser.profileImage}" width="150 "
-			height="150">
+		<img alt="profileImage" src="${loggedInUser.profileImage}"
+			width="150 " height="150">
+		
 		<h2>${loggedInUser.firstName} ${loggedInUser.lastName}</h2>
-		<a href="addDishForm.do" class="title"> Add Dish</a> 
-		<br> 
-		<a href="dishesToUpdate.do" class="title"> Update Dish</a> 
-		<br> 
-		<a href="dishesToDelete.do" class="title"> Delete Dish</a>
+		<a href="addDishForm.do" class="title"> Add Dish</a> <br> <a
+			href="dishesToUpdate.do" class="title"> Update Dish</a> <br> <a
+			href="dishesToDelete.do" class="title"> Delete Dish</a> <br> <a
+			href="updateUserForm.do" class="title">Update User Account</a>
+		<hr>
+		<h4>About Me</h4>
+		<br>
+		<p>${loggedInUser.aboutMe}</p>
 		<hr>
 
 
@@ -45,21 +49,21 @@
 			<br> <label for="shared">Shared</label> <input type="checkbox"
 				name="shared"> <br>
 
-			<button>Add Plan</button>
+			<button class ="btn btn-success" id="submitButtons">Add Plan</button>
 		</form>
 		<ul>
 			<c:forEach var="plan" items="${mealPlans}">
-				<li><a href="showPlan.do?planId=${plan.id}" class="title"> ${plan.title}</a>
-				</li>
+				<li><a href="showPlan.do?planId=${plan.id}" class="title">
+						${plan.title}</a></li>
 
 
 			</c:forEach>
 		</ul>
 
 
-		<a href="updateUserForm.do" class="title"><h4>Update User Account</h4></a>
 
-		<p>-Add a dish -update a dish -delete a dish -add to calendar</p>
+
+
 
 
 

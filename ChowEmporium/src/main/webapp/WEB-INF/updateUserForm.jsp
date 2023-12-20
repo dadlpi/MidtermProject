@@ -10,6 +10,7 @@
 <link rel = "icon" type = "image/x-icon" href ="img/download.ico">
 </head>
 <body>
+<%@ include file="navbar.jsp"%>
 <div class="background-container">
 		<img class = "pizzamoon"
 			src="img/download.png"
@@ -20,42 +21,42 @@
 	</div>
 
 
-<h1>Update User form for ${loggedInUser.firstName} ${loggedInUser.lastName}</h1>
+<h1 class ="regularText" >Update User form for ${loggedInUser.firstName} ${loggedInUser.lastName}</h1>
 
 
 <form class="userUpdate" action="updateUserAtDb.do" method="post">
 <table>
   <tbody>
     <tr>
-      <th><label>Update User Email</label></th>
+      <th><label class ="regularText">Update User Email:</label></th>
       <td><input type="text" name="email" value="${loggedInUser.email}"></td>
     </tr>
+    <tr>
+      <th><label class ="regularText">Username:</label></th>
+      <td><input type="text" name="username" value="${loggedInUser.username}"></td>
+    </tr> 
 
     <tr>
-      <th><label>Update User Password</label></th>
+      <th><label class ="regularText">Update User Password:</label></th>
       <td><input type="password" name="password" value="${loggedInUser.password}"></td>
     </tr>
 
 
     <tr>
-      <th><label>Update Profile Image</label></th>
+      <th><label class ="regularText">Update Profile Image</label></th>
       <td><input type="text" name="profileImage" value="${loggedInUser.profileImage}"></td>
     </tr>
 
     <tr>
-      <th><label>Update First Name</label></th>
+      <th><label class ="regularText">Update First Name:</label></th>
       <td><input type="text" name="firstName" value="${loggedInUser.firstName}"></td>
     </tr>
 
     <tr>
-      <th><label>Update Last Name</label></th>
+      <th><label class ="regularText">Update Last Name:</label></th>
       <td><input type="text" name="lastName" value="${loggedInUser.lastName}"></td>
     </tr>
 
-<%--     <tr>
-      <th><label>Update Last update</label></th>
-      <td><input type="text" name="lastUpdate" value="${loggedInUser.getLastUpdate}"></td>
-    </tr> --%>
 
     <tr>
       <th></th>

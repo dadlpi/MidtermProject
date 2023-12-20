@@ -1,5 +1,6 @@
 package com.skilldistillery.chowemporium.data;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -22,8 +23,12 @@ public class MealPlanDaoImpl implements MealPlanDAO {
 	@Override
 	public List<MealPlan> findAllForUser(int userId) {
 		String jpql = "SELECT p FROM MealPlan p WHERE p.user.id = :id";
-		return em.createQuery(jpql, MealPlan.class).setParameter("id", userId).getResultList();
+		
+	return	em.createQuery(jpql, MealPlan.class).setParameter("id", userId).getResultList();
+		
+		
 	}
+		
 
 	@Override
 	public MealPlan findByID(int mealPlanId) {

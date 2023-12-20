@@ -44,18 +44,18 @@
 				<form action="navbar.do" method="POST" class="p-4">
 					<div class="mb-3">
 						<label for="username" class="form-label">Username</label> <input
-							type="text" class="form-control" name="username"
-							placeholder="Username">
+							type="text" class="form-control" id="form-control" name="username"
+							placeholder="Username" >
 
 					</div>
 
 					<div class="mb-3">
 						<label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-						<input type="password" name="password" class="form-control"
-							placeholder="Password">
+						<input type="password" name="password" id="form-control" class="form-control"
+							placeholder="Password" >
 
 					</div>
-					<input type="submit" class="btn btn-primary" value="Sign in"></input>
+					<input type="submit" class ="btn btn-success" id="submitButtons"value="Sign in"></input>
 					<br> <a href="register.do">Register</a>
 				</form>
 
@@ -95,14 +95,14 @@
 					<div class="carousel-item active">
 						<img
 							src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-							class="d-block w-100" alt="..." width="350" height="350">
+							class="d-block w-100" alt="..."  height="750">
 					</div>
 					<c:if test="${! empty loggedInUser.favoriteDishList}">
 
 						<c:forEach var="dish" items="${loggedInUser.favoriteDishList}">
 							<div class="carousel-item ">
 								<a href="${dish.recipeUrl}"><img src="${dish.imageUrl}"
-									class="d-block w-100" alt="..." width="350" height="350"></a>
+									class="d-block w-100" alt="..."  height="750"></a>
 							</div>
 						</c:forEach>
 					</c:if>

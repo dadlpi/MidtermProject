@@ -33,6 +33,12 @@
                     <input type="email" name="email" class="form-control" required />
                 </div>
             </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Username: </label>
+                <div class="col-8">
+                    <input type="username" name="username" class="form-control" required />
+                </div>
+            </div>
              
       <div class="form-group row">
                 <label class="col-4 col-form-label">Password: </label>
@@ -59,7 +65,7 @@
             </div> 
              
             <div>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <button type="submit" class="btn btn-primary" id="submitButtons">Sign Up</button>
             </div>
         </div>
         </form>

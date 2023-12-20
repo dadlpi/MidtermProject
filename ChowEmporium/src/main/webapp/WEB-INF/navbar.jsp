@@ -17,11 +17,11 @@
 
 
 	<nav class="navbar">
-		<h1 class="title">Chow Emporium</h1>
-		<img src="img/download.png" alt="" width="45" height="45">
-		<a href="home.do" class="title">Home</a>
+		<img  class= "navimage" src="img/download.png" alt="" width="45" height="45"><a href="home.do" class="regularText"><h1 class ="regularText">Chow Emporium</h1>
+		 </a>
+		
 		<c:if test="${not empty sessionScope.loggedInUser}">
-			<a href="userHome.do" class="title">Account Home</a>
+			<a href="userHome.do" class="title">Home</a>
 			
 			<a href="logout.do" class="title">Log out</a>
 			

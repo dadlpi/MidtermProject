@@ -37,19 +37,21 @@ public class UserController {
 		return "register";
 	}
 
-	@RequestMapping(path = { "registerUserAtDb.do" }, params = { "email", "password", "firstName",
-			"lastName" }, method = RequestMethod.POST)
-	public String registerUser(@RequestParam("email") String theEmail, @RequestParam("password") String thePassword,
-			@RequestParam("firstName") String theFirstName, @RequestParam("lastName") String theLastName,
-			HttpSession session) {
+//	@RequestMapping(path = { "registerUserAtDb.do" }, params = { "email", "password", "firstName",
+//			"lastName" }, method = RequestMethod.POST)
+//	public String registerUser(@RequestParam("email") String theEmail, @RequestParam("password") String thePassword,
+//			@RequestParam("firstName") String theFirstName, @RequestParam("lastName") String theLastName, 
+//			HttpSession session) {
+	@RequestMapping(path = { "registerUserAtDb.do" }, method = RequestMethod.POST)
+		public String registerUser(User user, HttpSession session) {
 		User newCreateUser = new User();
 		newCreateUser.setEnabled(true);
-		newCreateUser.setUsername(theEmail);
+		newCreateUser.setUsername(user.getUsername());
 		newCreateUser.setRole("client");
-		newCreateUser.setPassword(thePassword);
-		newCreateUser.setFirstName(theFirstName);
-		newCreateUser.setLastName(theLastName);
-		newCreateUser.setEmail(theEmail);
+		newCreateUser.setPassword(user.getPassword());
+		newCreateUser.setFirstName(user.getFirstName());
+		newCreateUser.setLastName(user.getLastName());
+		newCreateUser.setEmail(user.getEmail());
 		newCreateUser.setDateCreated(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 		newCreateUser.setLastUpdated(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 		newCreateUser = userDao.CreateBrandNewUser(newCreateUser);

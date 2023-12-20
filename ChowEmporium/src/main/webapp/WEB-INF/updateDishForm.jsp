@@ -20,16 +20,18 @@
 
 		<%@ include file="navbar.jsp"%>
 
-	<h2>${dish.name}</h2>
+	<h2 class = "regularText" id= "updateFormHeader">${dish.name}</h2>
 
-	<form action="updateDish.do" method="POST">
+	<form action="updateDish.do" method="POST" class ="updateForm">
 
-		<input type="hidden" name="id" value="${dish.id }"> Name: <input
+		<input type="hidden" class="regularText" name="id" value="${dish.id }"><h4 class = "regularText">Name</h4>  <input
 			type="text" name="name" placeholder="${dish.name} "
-			value="${dish.name}" /> <br> Update Description of the Job with
-		a new Entry: <br>
-		<textarea rows="5" cols="50" name="description" value="${dish.description }" placeholder = "${dish.description }" ></textarea>
-		<input type="submit" value="Submit " />
+			
+			value="${dish.name}" /> <br><br> 
+			<h4 class = "regularText">Description</h4>
+			 <br>
+		<textarea   placeholder = "${dish.description}" rows="5" cols="50" name="description" >${dish.description } </textarea>
+		<br><input type="submit" value="Submit"  class ="btn btn-success" id="submitButtons" />
 	</form>
 
 

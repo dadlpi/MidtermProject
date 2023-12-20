@@ -22,29 +22,24 @@
 	<%@ include file="navbar.jsp"%>
 
 
-	<h1 class="title">
+	<h1 class="regularText">
 		<strong>Results Page</strong>
 	</h1>
 
-	<h3 class="title">Logged in user = ${loggedInUser.firstName}
+	<h3 class="regularText">Logged in user = ${loggedInUser.firstName}
 		${loggedInUser.lastName}</h3>
 
 	<c:if test="${not empty loggedInUser.userCreatedDishes}">
-		<h2 class="title">you changed: ${dish.name}</h2>
+		<h2 class="regularText">you changed: ${dish.name}</h2>
 	</c:if>
 
 	<c:if test="${empty loggedInUser.userCreatedDishes}">
-		<h2 class="title">You have removed: ${dish.name}</h2>
+		<h2 class="regularText">You have performed an update</h2>
+	</c:if>
+	<c:if test="${empty loggedInUser}">
+		<h2 class="regularText">You have performed an update</h2>
 	</c:if>
 
-<%-- 	<div id=“container”>
-		<c:if test=“${errorTypeeq 500}“>
-			<div class=“error-container” id=“errorContainer”>
-				<h1>Error 500 - Internal Server Error</h1>
-				<p id=“errorMessage”>Sorry, an internal server error occurred.</p>
-				<a href=“deleteForm.do” class=“back-button”>Back</a>
-			</div>
-		</c:if>
-	</div> --%>
+
 </body>
 </html>
