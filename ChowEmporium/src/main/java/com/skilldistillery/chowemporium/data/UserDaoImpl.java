@@ -59,6 +59,7 @@ public class UserDaoImpl implements UserDAO {
 		userChanged.setProfileImage(user.getProfileImage());
 //		userChanged.setAboutMe(user.getAboutMe()); //Removed for MVP functionality
 		userChanged.setPassword(user.getPassword());
+		userChanged.setAboutMe(user.getAboutMe());
 		userChanged.setLastUpdated(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 		
 		em.flush();
