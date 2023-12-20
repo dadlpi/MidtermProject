@@ -26,7 +26,7 @@
 	<div class="container">
 		<%@ include file="navbar.jsp"%>
 
-		<h1>List of Meals</h1>
+		<h1 >List of Meals</h1>
 
 
 		<div>
@@ -37,7 +37,7 @@
 							
 							
 							<br>
-							<h3>${dish.name}</h3>
+							<h3 >${dish.name}</h3>
 							<img alt="Dish" src="${dish.imageUrl }" width = "250 " height = "250">
 							<ul>
 							<li><a href = "${dish.recipeUrl}">Link to Recipe</a></li>
@@ -45,7 +45,7 @@
 							<li>Carbs: ${dish.carbsGrams }</li>
 							<li>Fat: ${dish.fatGrams }</li>
 							<li>Protein: ${dish.proteinGrams }</li>
-							<li>Restrictions: ${dish.dietaryRestrictions }</li>
+							
 							</ul>
 								<hr>
 						<br>

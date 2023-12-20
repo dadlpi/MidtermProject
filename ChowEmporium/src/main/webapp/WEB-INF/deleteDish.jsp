@@ -21,7 +21,7 @@
 
 		<%@ include file="navbar.jsp"%>
 
-	<h5>${loggedInUser.firstName}${loggedInUser.lastName}</h5>
+	<h5 class ="regularText">${loggedInUser.firstName} ${loggedInUser.lastName}</h5>
 	
 
 	<div>
