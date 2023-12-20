@@ -28,16 +28,16 @@
 <table>
   <tbody>
     <tr>
-      <th><label class ="regularText">Update User Email:</label></th>
+      <th><label class ="regularText">Update Email:</label></th>
       <td><input type="text" name="email" value="${loggedInUser.email}"></td>
     </tr>
     <tr>
-      <th><label class ="regularText">Username:</label></th>
+      <th><label class ="regularText"> Update Username:</label></th>
       <td><input type="text" name="username" value="${loggedInUser.username}"></td>
     </tr> 
 
     <tr>
-      <th><label class ="regularText">Update User Password:</label></th>
+      <th><label class ="regularText">Update Password:</label></th>
       <td><input type="password" name="password" value="${loggedInUser.password}"></td>
     </tr>
 
@@ -56,11 +56,15 @@
       <th><label class ="regularText">Update Last Name:</label></th>
       <td><input type="text" name="lastName" value="${loggedInUser.lastName}"></td>
     </tr>
+    <tr>
+      <th><label class ="regularText">Update About Me:</label></th>
+      <td><input type="text" name="aboutMe" value="${loggedInUser.aboutMe}"></td>
+    </tr>
 
 
     <tr>
       <th></th>
-      <td><input type="submit" value = "Update User"></input> </td>
+      <td><input type="submit" value = "Update User" class ="btn btn-success" id="submitButtons"></input> </td>
     </tr>
   </tbody>
 </table>

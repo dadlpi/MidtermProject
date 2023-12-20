@@ -52,6 +52,7 @@ public class UserController {
 		newCreateUser.setFirstName(user.getFirstName());
 		newCreateUser.setLastName(user.getLastName());
 		newCreateUser.setEmail(user.getEmail());
+		newCreateUser.setAboutMe(user.getAboutMe());
 		newCreateUser.setDateCreated(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 		newCreateUser.setLastUpdated(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 		newCreateUser = userDao.CreateBrandNewUser(newCreateUser);
